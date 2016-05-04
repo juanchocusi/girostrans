@@ -1,0 +1,14 @@
+
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-div {  overflow-y: scroll;}
+/*.mygrid-wrapper-div1 { overflow-y: scroll;}*/
+/*===============================================================================*/
+table {font-size: 11px;}
+.blue { color: #428bca }
+
+
+#txt_datosusuario {font-size:12px;height:30px;width:280px;border:1px solid #ddd;}
+#txt_bancos{display: none; height:30px;width:280px;border:1px solid #ddd;}
+#txt_nrocuenta{display: none; height:30px;width:280px;border:1px solid #ddd;}
+#txt_datosus {font-size:12px;height:30px;width:280px;border:1px solid #ddd;}
+#txt_sucursal {font-size:12px;height:30px;width:280px;border:1px solid #ddd;}

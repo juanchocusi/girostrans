@@ -1,0 +1,13 @@
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-div  { overflow-y: scroll;}
+.mygrid-wrapper-divc { overflow-y: scroll;}
+/*===============================================================================*/
+table {font-size: 11px;}
+
+.blue { color: #428bca }
+
+#fechai { width: 100px; font-size: 14px} 
+#fechaf { width: 100px; font-size: 14px}
+#txtnick { text-align: center; font-size: 14px } #txtsucursal { text-align: center; font-size: 14px}
+
+#total_i { text-align: right;} #total_c { text-align: right;} #total_o { text-align: right;} #total_t { text-align: right;}

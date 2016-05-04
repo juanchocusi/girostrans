@@ -1,0 +1,46 @@
+
+/*    #transferencias { font-size: 11px; }
+    #IngresosDet { font-size: 11px; }           
+    #EgresosDet { font-size: 11px; }
+    #tabla_dinero {font-size: 11px;}*/
+    table {font-size: 11px;}
+    
+    .lbl{
+        color: Silver;
+    }
+    .fila-base{ display: none; } /* fila base oculta */
+    #fecha_cierre{text-align:center ; font-size: 11pt; font-weight: bold;width: 100px; }
+    #total_egresos {text-align: right; font-size: 10pt; font-weight: bold;  }
+    #total_e {text-align: right;  font-weight: bold;  }
+    #total_ingresos {text-align: right; font-size: 10pt; font-weight: bold; }
+    #total_i {text-align: right;  font-weight: bold; }
+    #total_saldo {text-align: right; font-size: 10pt; font-weight: bold; color:white }
+    #saldo_final{text-align: center; font-size: 10pt; font-weight: bold; color:white }
+    #codcierrediario {text-align: center; font-size: 10pt; font-weight: bold; width: 100px; color:purple }
+    #fechacierrediario {text-align: center; font-size: 10pt; font-weight: bold; width: 100px; color: purple }
+    #total_en {text-align: right; font-weight: bold; }
+    #total_re {text-align: right; font-weight: bold; }
+    #total_pe {text-align: right; font-weight: bold; }
+    #lbluscar {float: right}
+    #lista_diario {font-family:arial;font-size:11px}  
+    #egreso {text-align: right; font-size: 11pt; font-weight: bold}
+    #lista_agentes {font-size:11px;font-weight: bold; width: 300px; }
+    #lista_asociados {font-size:11px;font-weight: bold; width: 300px; }
+	#lista_sucursales_distro{font-size:11px;font-weight: bold; width: 300px; }
+    #opciones_distribucion { width: 300px; }
+    #txt_fraccion_distro {font-size:12px;font-weight: bold; width: 300px; text-align: right }
+    #suma_fraccion {text-align: right; font-size: 8pt;}
+
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-divgiros { overflow-y: scroll;}
+.mygrid-wrapper-divi { overflow-y: scroll;}
+.mygrid-wrapper-dive { overflow-y: scroll;}
+.mygrid-wrapper-divd { overflow-y: scroll;}
+/*===============================================================================*/
+.blue { color: #428bca; }
+
+#total_dinero{text-align: right; font-size: 11pt; font-weight: bold;}
+/*#sideform {width: 300px}*/
+#d_saldo_final {font-size:12px;font-weight: bold; text-align: right }
+#d_total_efectivo {font-size:12px;font-weight: bold; text-align: right }
+#d_diferencia {font-size:14px;font-weight: bold; text-align: right }

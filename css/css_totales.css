@@ -1,0 +1,17 @@
+#fechai { width: 100px; font-size: 14px} 
+#fechaf { width: 100px; font-size: 14px}
+
+table {font-size: 12px;}
+th {font-size: 12px; background: #428bca;color: white}
+/*td {font-size: 11px; background: darkkhaki;color:black}*/
+
+.ocultame {display: none}
+
+#lista_empresas {width: 100px; font-size: 14px}
+#lista_periodo {width: 100px; font-size: 14px}
+#buscador {width: 165px; font-size: 14px}
+
+#t_importe {text-align: right}
+#t_cargo {text-align: right}
+#t_otros {text-align: right}
+#t_total {text-align: right}

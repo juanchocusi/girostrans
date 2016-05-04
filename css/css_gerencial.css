@@ -1,0 +1,72 @@
+th {padding:5px;background:#555;color:#DAA520}
+td {padding:5px;border:solid #ddd;border-width:0 0 1px;}
+/*.blue { color: #428bca }*/ 
+
+table {font-size: 11px;}
+/*th {background:#428bca;color:whitesmoke;}*/
+#fechai {width: 70px;font-size: 10px}
+#fechaf {width: 70px;font-size: 10px}
+
+#t_ci {text-align: right;}
+#tsaldo_cuenta{text-align: right;}
+#tsaldo_efectivo{text-align: right;}
+#total_ci{text-align: right;}
+#tsaldo_asociado{text-align: right;}
+#tvarios{text-align: right;}
+#tletras{text-align: right;}
+#totros{text-align: right;}
+#tctasxp{text-align: right;}
+#tctasxc{text-align: right;}
+#tpendientes{text-align: right;}
+#total_1{text-align: right;font-weight: bold}
+
+/*#total_AsociadosAgentes{text-align: right; font-weight: bold}
+#suma_comi_itf{text-align: right; font-weight: bold}
+#suma_ctaxpagar{text-align: right; font-weight: bold}
+#suma_ctaxcobrar{text-align: right; font-weight: bold}
+#suma_pendientes{text-align: right; font-weight: bold}
+#total_efectivo_neto{text-align: right; font-weight: bold}
+#total_gastos_sucursales{text-align: right; font-weight: bold}*/
+
+#tsaldoi{text-align: right; font-weight: bold}
+#tpendientes{text-align: right; font-weight: bold}
+#tvarios{text-align: right; font-weight: bold}
+#tletras{text-align: right; font-weight: bold}
+#tcombustibles{text-align: right; font-weight: bold}
+#tviaticos{text-align: right; font-weight: bold}
+#talimentos{text-align: right; font-weight: bold}
+#tctasxpagar{text-align: right; font-weight: bold}
+#totros{text-align: right; font-weight: bold}
+#tentragados{text-align: right; font-weight: bold}
+#ttraslado_efectivo{text-align: right; font-weight: bold}
+#ttotales_s{text-align: right; font-weight: bold}
+
+#ti_saldoi{text-align: right; font-weight: bold}
+#ti_retiro_banco{text-align: right; font-weight: bold}
+#ti_transf_recibidas{text-align: right; font-weight: bold}
+#ti_ctasxcobras{text-align: right; font-weight: bold}
+#ti_otros_ing{text-align: right; font-weight: bold}
+#ti_traslado_efectivo{text-align: right; font-weight: bold}
+#ti_totales_i{text-align: right; font-weight: bold}
+
+#tsaldo_cuenta{text-align: right; font-weight: bold}
+#t_ogastos{text-align: right; font-weight: bold}
+#tsaldo_efectivo{text-align: right; font-weight: bold}
+
+#t_ogastosa{text-align: right; font-weight: bold}
+#t_comi_internet{text-align: right; font-weight: bold}
+#t_bono{text-align: right; font-weight: bold}
+#total_ci{text-align: right; font-weight: bold}
+#tsaldo_asociado{text-align: right; font-weight: bold}
+/*flujo caja*/
+#ingresos_salidas{text-align: right; font-weight: bold}
+#transf_pendientes{text-align: right; font-weight: bold}
+#efectivo_neto{text-align: right; font-weight: bold}
+
+#total_flujocajae{text-align: right; font-weight: bold; width: 200px;}
+#id_txt {text-align: right; font-weight: bold; width: 200px;}
+#mensaje_blockui{ font-weight: bold; font-size: 18px;}
+#mensajito{ font-weight: bold; font-size: 18px;}
+
+
+

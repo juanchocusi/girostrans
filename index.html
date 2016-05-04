@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Grupo Pantera-Sistema de Información</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:600,700' rel='stylesheet' type='text/css'>-->
+    <link rel="icon" href="img/favicon.ico" type="image/gif">
+    <link rel="stylesheet" href="css/style_principal.css">
+
+</head>
+<body>
+<header>
+    <a href="#" id="logo">Logo</a>
+    <nav id="menu">
+        <a href="#" class="nav-mobile" id="nav-mobile"></a>
+        <ul>
+            <li><a href="#">Inicio</a></li>            
+            <li><a href="indexLoginTrans.php">Giros-Transferencias</a></li>
+            <li><a href="loginpedidos.php" target="_blank">Pedidos</a></li>
+            <li><a href="#">Almacen Ventas</a></li>
+            <li><a href="LoginAdmin.php">Admin</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+    <div id="content">        
+        <h1>Grupo Pantera</h1>
+        <h3>Pagina en construcción</h3>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function() {
+
+        var btn_movil = $('#nav-mobile'),
+            menu = $('#menu').find('ul');
+
+        // Al dar click agregar/quitar clases que permiten el despliegue del menú
+        btn_movil.on('click', function (e) {
+            e.preventDefault();
+
+            var el = $(this);
+
+            el.toggleClass('nav-active');
+            menu.toggleClass('open-menu');
+        })
+
+    });
+</script>
+<footer id="piepagina">
+            <p>Todos los derechos reservados 2016</p>
+            <p>www.dataweb365.com</p>
+        </footer>
+</body>
+
+</html>

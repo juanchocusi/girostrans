@@ -1,0 +1,25 @@
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-div {  overflow-y: scroll;}
+/*.mygrid-wrapper-div1 { overflow-y: scroll;}*/
+/*===============================================================================*/
+table {font-size: 11px;}
+
+/*tbody td:nth-child(even) {
+background-color: whitesmoke; // para las columnas pares
+}*/
+
+.blue { color: #428bca } 
+
+#monto {text-align:right ;}
+#datoagente {border: none; }
+#txtnick {text-align:center; }
+#txtsucursal {text-align:center; }
+#listabancos {font-size: 16px;}
+#monto {font-size: 14px;}
+#nromovs  {font-size: 14px;}
+#total_o {text-align: right;} 
+#total_i {text-align: right;} 
+#total_s {text-align: right;} 
+/*#fechai {width: 80px;font-size: 10px}
+#fechaf {width: 80px;font-size: 10px}*/
+.oculto {display: none}

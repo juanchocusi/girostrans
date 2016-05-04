@@ -1,0 +1,154 @@
+/*#resultado_b { font-size: 12px; margin: 15px 25px 0 0; text-align: left; border-collapse: collapse; }
+#resultado_b th {font-size: 12px; font-weight: normal; padding: 10px 8px; background: #b9c9fe; border-top: 4px solid #aabcfe; border-bottom: 1px solid #fff; olor: #039;}
+#resultado_b td {padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+#resultado_b tr:hover td { background: #d0dafd; color: #339; }*/
+
+#resultado_r {font-size: 12px; margin: 15px 25px 0 0; text-align: left; border-collapse: collapse; }
+#resultado_r th {font-size: 12px; font-weight: normal; padding: 10px 8px; background: #b9c9fe; border-top: 4px solid #aabcfe; border-bottom: 1px solid #fff; olor: #039;}
+#resultado_r td {padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+#resultado_r tr:hover td { background: #d0dafd; color: #339; }
+
+#resultado_s {font-size: 12px; margin: 15px 25px 0 0; text-align: left; border-collapse: collapse; }
+#resultado_s th {font-size: 12px; font-weight: normal; padding: 10px 8px; background: #b9c9fe; border-top: 4px solid #aabcfe; border-bottom: 1px solid #fff; olor: #039;}
+#resultado_s td {padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+#resultado_s tr:hover td { background: #d0dafd; color: #339; }
+/* GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG */
+
+#eresultado_b {font-size: 12px; margin: 15px 25px 0 0; text-align: left; border-collapse: collapse; }
+#eresultado_b th {font-size: 12px; font-weight: normal; padding: 10px 8px; background: #b9c9fe; border-top: 4px solid #aabcfe; border-bottom: 1px solid #fff; olor: #039;}
+#eresultado_b td {padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+#eresultado_b tr:hover td { background: #d0dafd; color: #339; }
+
+#eresultado_r {font-size: 12px; margin: 15px 25px 0 0; text-align: left; border-collapse: collapse; }
+#eresultado_r th {font-size: 12px; font-weight: normal; padding: 10px 8px; background: #b9c9fe; border-top: 4px solid #aabcfe; border-bottom: 1px solid #fff; olor: #039;}
+#eresultado_r td {padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+#eresultado_r tr:hover td { background: #d0dafd; color: #339; }
+
+#eresultado_s {font-size: 12px; margin: 15px 25px 0 0; text-align: left; border-collapse: collapse; }
+#eresultado_s th {font-size: 12px; font-weight: normal; padding: 10px 8px; background: #b9c9fe; border-top: 4px solid #aabcfe; border-bottom: 1px solid #fff; olor: #039;}
+#eresultado_s td {padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+#eresultado_s tr:hover td { background: #d0dafd; color: #339; }
+
+
+  #importe_r {text-align: right; font-size: 14pt; color:#006400; background-color:#FFFFF0 }
+  #cargo_r   {text-align: right; font-size: 14pt; color:#006400; background-color:#FFFFF0 }
+  #itf_r     {text-align: right; font-size: 14pt; color:#006400; background-color:#FFFFF0 }
+  #otros_r   {text-align: right; font-size: 14pt; color:#006400; background-color:#FFFFF0 }
+  #total_r   {text-align: right; font-size: 14pt; color:#8B0000; background-color:#FFFFF0 }
+  #dnib      {font-size: 12pt; background-color:#FFFFF0 }
+  #dnir      {font-size: 12pt; background-color:#FFFFF0 }
+  #codsucu   {font-size: 12pt; background-color:#FFFFF0 }
+  #efectivo_r {text-align: right;font-size: 14pt;  }
+  #vuelto_r   {text-align: right;font-size: 14pt;  }    
+  #listaporcentajes{text-align: right; font-size: 12pt;}
+  
+  #nombresb  {font-size: 11pt;}
+  #nombresr  {font-size: 11pt;}
+  #destino   {font-size: 11pt;}
+  
+  #eimporte_r {text-align: right; font-size: 14pt; color:#006400; background-color:#FFFFF0 }
+  #ecargo_r   {text-align: right; font-size: 14pt; color:#006400; background-color:#FFFFF0 }
+  
+  #ednib    {font-size: 12pt; background-color:#FFFFF0 }
+  #ednir    {font-size: 12pt; background-color:#FFFFF0 }
+  
+  #elistaporcentajes{text-align: right; font-size: 12pt;}
+  #total_i {text-align: right; font-size: 12px;}
+  #total_c {text-align: right; font-size: 12px;}
+  #total_o {text-align: right; font-size: 12px;}
+  #total_g {text-align: right; font-size: 12px;}
+  #etotal_i{text-align: right; font-size: 12px; color: blue;}
+  #etotal_p{text-align: right; font-size: 12px; color: purple;}
+  
+  #enombresb  {font-size: 9pt;}
+  #enombresr  {font-size: 9pt;}
+  #edestino   {font-size: 10pt;}
+  #operacion  {font-size: 10pt; background-color: pink; }
+  
+ table {font-size: 11px; font-family: Arial, sans-serif}
+ table th {background: #428bca; color: white}
+
+
+/*TTTTTTTTTTTTTTTTTTTTT TABLA RECIBIDOS  TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*/
+/*#TEntregados {
+    border-collapse: collapse;
+    border: 1px solid #CCC;
+    font-size: 11px;
+}*/
+ 
+/*#TEntregados th {
+    padding:5px;
+}
+#TEntregados td {
+    padding: 5px 10px;
+}*/
+/*TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*/
+#correlativo{font-size: 0.9em;
+}
+
+#nombreusuario  {font-size: 0.7em;}
+#nombresucursal  {font-size: 0.7em;}
+#nuevo {font-size: 0.9em;}
+#btn_cancelar {font-size: 0.9em;}
+#ebtn_cancelar {font-size: 0.9em;}
+#guardar  {font-size: 0.9em;}
+#imprimir_r  {font-size: 0.9em;}
+#anular  {font-size: 0.9em;}
+#bancos {font-size: 0.7em;}
+#cuentas  {font-size: 0.9em;}
+
+#enuevo {font-size: 0.9em;}
+#eguardar  {font-size: 0.9em;}
+#eimprimir_r  {font-size: 0.9em;}
+#eanular  {font-size: 0.9em;}
+#ebancos {font-size: 0.9em;}
+#ecuentas  {font-size: 0.7em;}
+#vermasdatos {font-size: 0.7em;}
+
+.oculto{
+    display: none;
+}
+.eoculto{
+    display: none; 
+}
+#tabla_cuentas{font-size:12px}            
+#tabla_bancos{font-size:12px}            
+#txt_datocliente{font-size:12px;height:30px;width:280px;border:1px solid #ddd;}
+#txt_bancos{display: none; height:30px;width:280px;border:1px solid #ddd;}
+#txt_nrocuenta{display: none; height:30px;width:280px;border:1px solid #ddd;}
+#ebuscador{font-size:12px; height: 20px; padding: 0px 5px 0px 5px; margin-top: 15px}
+#buscador {font-size:12px; height: 20px; padding: 0px 5px 0px 5px; margin-top: 15px}
+#fecha_r {font-size:12px; height: 20px; width: 80px; padding: 0px 5px 0px 5px; margin-top: 15px}
+#efecha_r {font-size:12px; height: 20px; width: 80px; padding: 0px 5px 0px 5px; margin-top: 15px}
+#etxt_bancos{font-size:12px}
+#datoscuenta{font-size:12px}
+#nrodeoperacion{font-size:12px}
+
+#modal_b { height: 800px; width: 500px; }
+
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-div {  overflow-y: scroll;}
+.mygrid-wrapper-divb { overflow-y: scroll;}
+.mygrid-wrapper-divr { overflow-y: scroll;}
+.mygrid-wrapper-divs { overflow-y: scroll;}
+.mygrid-wrapper-divban { overflow-y: scroll;}
+.mygrid-wrapper-divclon { overflow-y: scroll;}
+/*.mygrid-wrapper-divclon { overflow-x: auto;}
+.mygrid-wrapper-divclon { overflow-y: hidden;}
+#divclon { width: 97% }*/
+/*===============================================================================*/
+.blue { color: #428bca } 
+#boleta_cargo {font-size:12px; width: 50px; height: 30px; text-align: right}
+#boleta_serie {font-size:12px; width: 30px; height: 30px;}
+#boleta_fecha {font-size:14px; width: 100px; height: 30px; text-align: center}
+#boleta_nro   {font-size:14px; width: 100px; height: 30px; text-align: center}
+#dni_b {font-size:12px; width: 120px; height: 30px;}
+#dni_r {font-size:12px; width: 120px; height: 30px;}
+#boleta_describe {height: 40px;}
+#boleta_numeroletras { border: none;}
+
+/*#lista_agentes {font-size:11px;font-weight: bold; width: 300px; }
+    #lista_asociados {font-size:11px;font-weight: bold; width: 300px; }
+    #opciones_distribucion { width: 300px; } */
+    #txt_fraccion_distro {font-size:12px;font-weight: bold; text-align: right }
+    #suma_fraccion {text-align: right; font-size: 8pt;}

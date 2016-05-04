@@ -1,0 +1,18 @@
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-div {  overflow-y: scroll;}
+.mygrid-wrapper-div1 { overflow-y: scroll;}
+/*===============================================================================*/
+table {font-size: 11px;}
+
+/*.blue { color: #428bca } */
+.blue { color: #DAA520 } 
+
+#total_i   {text-align: right; font-size: 12pt; border: none }
+#total_s   {text-align: right; font-size: 12pt; border: none  }
+#total_sa  {text-align: right; font-size: 12pt; border: none; color: black ;   }
+#txtsucursal   { font-size: 12pt; border: none }
+#txtnick   { font-size: 12pt; border: none }
+#monto {    font-size: 16px;  }
+#observa {    font-size: 14px; }
+#fechai {width: 100px}
+#fechaf {width: 100px}

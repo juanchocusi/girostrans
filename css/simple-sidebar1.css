@@ -1,0 +1,117 @@
+#wrapper1 {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;        
+}
+
+#wrapper1.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper1 {
+    z-index: 1000;
+    position: fixed;
+    left: 300px;
+    width: 0;
+    height: 100%;
+    margin-left: -300px;
+    overflow-y: auto;
+	background:#fff;
+    /*background: #000;*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    padding-right: 10px;
+}
+
+#wrapper1.toggled #sidebar-wrapper1 {
+    width: 300px;
+}
+
+#page-content-wrapper1 {
+    width: 100%;
+    padding: 15px;
+}
+
+#wrapper1.toggled #page-content-wrapper1 {
+    position: absolute;
+    margin-right: -300px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav1 {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+.sidebar-nav1 li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav1 li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav1 li a:hover {
+    text-decoration: none;
+    color: #000;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav1 li a:active,
+.sidebar-nav1 li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav1 > .sidebar-brand1 {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav1 > .sidebar-brand1 a {
+    color: #999999;
+}
+
+.sidebar-nav1 > .sidebar-brand1 a:hover {
+    color: #000;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper1 {
+        padding-left: 300px;
+    }
+
+    #wrapper1.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper1 {
+        width: 300px;
+    }
+
+    #wrapper1.toggled #sidebar-wrapper1 {
+        width: 0;
+    }
+
+    #page-content-wrapper1 {
+        padding: 20px;
+    }
+
+    #wrapper1.toggled #page-content-wrapper1 {
+        position: relative;
+        margin-right: 0;
+    }
+}

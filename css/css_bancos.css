@@ -1,0 +1,7 @@
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-div {  overflow-y: scroll;}
+/*.mygrid-wrapper-div1 { overflow-y: scroll;}*/
+/*===============================================================================*/
+table {font-size: 11px;}
+.blue { color: #428bca } 
+.ocultame {display: none}

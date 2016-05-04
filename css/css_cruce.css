@@ -1,0 +1,14 @@
+
+/* ========================= redimensiona tabla =================================*/
+.mygrid-wrapper-div {  overflow-y: scroll;}
+/*.mygrid-wrapper-div1 { overflow-y: scroll;}*/
+/*===============================================================================*/
+table {font-size: 11px;}
+.blue { color: #428bca }
+#fechai{text-align:center ; font-size: 11pt; font-weight: bold;width: 100px; }
+#fechaf{text-align:center ; font-weight: bold;width: 100px; }
+th {padding:5px;background:#555;color:#fff}
+        td {padding:5px;border:solid #ddd;border-width:0 0 1px;}
+#lbl_origen {color: blue}
+#lbl_destino {color: blue}
+.oculto {display: none}

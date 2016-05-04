@@ -59,7 +59,6 @@ if (!isset($_SESSION["nick"])) {
                 <?php include("RTabla.php"); ?>
 
             </div>    
-
         </div>        
         <?php include("RDialogos.php"); ?>      
 

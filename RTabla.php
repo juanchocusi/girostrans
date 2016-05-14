@@ -5,6 +5,7 @@
         <thead id="cab_trecibidos" >
           <tr>
    <!--0--> <th>Nro</th>
+            <th>...</th>
             <th>Codigo</th>
             <th>Fecha Recepcion</th>
             <th >DNI-B</th>               
@@ -40,6 +41,7 @@
         <tfoot>
           <tr>
     <!--0--><th></th>                
+            <th></th>
             <th></th>
             <th></th>
             <th></th>               

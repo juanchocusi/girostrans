@@ -353,7 +353,7 @@
     </div>
     <div id="fileuploader">Upload</div>
     <div class="form-group">        
-        <button type="button" id="btn_guarda_voucher" class="btn btn-success">Guardar VOUCHER</button>
+        <button type="button" id="btn_guarda_voucher" class="btn btn-success">Guardar BOUCHER</button>
     </div>   
                 
 </div>

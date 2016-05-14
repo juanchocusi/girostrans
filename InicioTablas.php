@@ -9,6 +9,7 @@
           <thead>
             <tr >
               <th>Nro</th>                
+              <th>...</th>
               <th>Codigo</th>
               <th>Fecha</th>
               <th>DNI-B</th>               
@@ -41,6 +42,7 @@
           <tfoot>
             <tr>
               <th></th>
+              <th>...</th>
               <th></th>
               <th></th>
               <th></th>

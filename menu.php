@@ -37,11 +37,19 @@
                 </li>
                 <li> <a href=""><i class="fa fa-table"></i>Tablas<span class="fa arrow"></span> </a>
                     <ul class="nav nav-second-level">
-                        <li> <a href="nusuarios.php" >Asociados-Usuarios </a></li>                                
-                        <li> <a href="nbancos.php" >Bancos-Agentes</a> </li>                                                               
+                      <?php  
+                      if ($_SESSION['tipousuario'] === 'ADMIN') {  
+                        //*/<li> <a href="nusuarios.php" >Asociados-Usuarios </a></li>                                */
+                        echo "  <li> <a href='nusuarios.php'>Asociados-Usuarios</a>  </li>";
+                        echo "  <li> <a href='nsucursales.php'>Sucursales</a>  </li>";
+                        echo "  <li> <a href='nbancos.php'>Bancos-Agentes</a>  </li>";
+                        echo "  <li> <a href='ntransacciones.php'>Transacciones</a>  </li>";
+                        }
+                      ?>  
+                        <!--<li> <a href="nbancos.php" >Bancos-Agentes</a> </li>-->
                         <li> <a class="fa fa-users" href="nClientes.php" >  Clientes </a> </li>                        
-                        <li> <a href="nsucursales.php" >Sucursales </a> </li>
-                        <li> <a href="ntransacciones.php" >Transacciones</a> </li>
+                        <!--<li> <a href="nsucursales.php" >Sucursales </a> </li>-->
+                        <!--<li> <a href="ntransacciones.php" >Transacciones</a> </li>-->
                         <li> <a href="nconceptos.php" >Conceptos </a></li>
                         <li> <a href="nmasdatos.php" >Mas Datos </a></li>
                     </ul>

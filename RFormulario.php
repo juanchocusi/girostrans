@@ -103,9 +103,12 @@
                 <button id="btn_editar" type="button"         class=" btn btn-default btn-xs" title="Editar Giro">Editar</button>
                 <button id="btn_guardaedicion" type="button"  class="edita btn btn-default btn-xs" >Guardar Cambios</button>
                 <button id="btn_cancelaedicion" type="button" class="edita btn btn-default btn-xs" >Cancelar</button>
-                <button id="btn_voucher" type="button" class="normal btn btn-default btn-xs " title="Muestra Voucher">
-                    <span class="glyphicon glyphicon-file"></span>                    
-                </button>                
+                <button id="btn_lista_voucher" type="button" class="normal btn btn-default btn-xs " title="Lista de Boucher">
+                    <span class="glyphicon glyphicon-list"></span>                    
+                </button>
+<!--                <button id="btn_voucher" type="button" class="normal btn btn-default btn-xs " title="Muestra Boucher">
+                    <span class="glyphicon glyphicon-picture"></span>                    
+                </button>                -->
                 <div id="carga" style="display:none"> <img src="img/cargando.gif" /> </div>
     </div>
 

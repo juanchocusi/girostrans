@@ -1,16 +1,15 @@
 function eCalculaTotales() {
     var sumape = 0;
     var sumapa = 0;
-    $('#TEntregados tr.dato').each(function () { //filas con clase 'dato', especifica una clase, asi no tomas el nombre de las columnas
-        /*sumai += parseFloat($(this).find('td').eq(8).text()||0,10); //numero de la celda 8*/
-        if ($(this).find('td').eq(17).text() === 'Pendiente') {
+    $('#TEntregados tr.dato').each(function () { //filas con clase 'dato', especifica una clase, asi no tomas el nombre de las columnas        
+        if ($(this).find('td').eq(18).text() === 'Pendiente') {
             $(this).css('color', 'purple');
             //$(this).css('color', 'DarkKhaki');
-            sumape += parseFloat($(this).find('td').eq(8).text() || 0, 10);};
-        if ($(this).find('td').eq(17).text() !== 'Pendiente') {
-            sumapa += parseFloat($(this).find('td').eq(8).text() || 0, 10);
+            sumape += parseFloat($(this).find('td').eq(9).text() || 0, 10);};
+        if ($(this).find('td').eq(18).text() !== 'Pendiente') {
+            sumapa += parseFloat($(this).find('td').eq(9).text() || 0, 10);
             $(this).css('color', 'blue');};
-        if ($(this).find('td').eq(22).text() === 'S') {
+        if ($(this).find('td').eq(23).text() === 'S') {
             $(this).css('color', 'tomato');};
     });
 //alert(suma);
@@ -218,12 +217,18 @@ function MuestraEntregados(fecha_busqueda, opt) {
 }
 
 function CreaTablaEntregados(jsonrecibe) {
-
+    var voucher;
     var html;
     for (var contador = 0; contador < jsonrecibe.length; contador++) {
         var i = contador + 1;
         html += "<tr id='R[" + contador + "]' class='dato' ondblclick='eRecuperaFila(this.id);'>";
         /* 0 */ html += "<td>" + i + "</td>";
+        voucher = jsonrecibe[contador].voucher;
+        if (voucher === 'XXX') {
+            html += "<td>" + " <button id='btn_anular' title='' type='button' aria-hidden='true' class='btn btn-default btn-xs' ><span class='glyphicon glyphicon-remove'></span></button>" + "</td>";
+        } else {
+            html += "<td>" + " <button id=" + jsonrecibe[contador].cod_girosucu + " title='Boucher' type='button' aria-hidden='true' class='btn btn-default btn-xs' ><span class='glyphicon glyphicon-picture blue'></span></button>" + "</td>";
+        }
         html += "<td id='correlativo'>" + jsonrecibe[contador].cod_girosucu + "</td>";
         html += "<td>" + jsonrecibe[contador].fechahora_registro + "</td>";
         html += "<td >" + jsonrecibe[contador].dni_rucb + "</td>";
@@ -397,14 +402,15 @@ function eControlesCancelar() {
 }
 
 function fnImprimeEntregados(accion) {
+    var confirma_impresion=VerificaImprimir();            
     switch (accion) {
         case "manualmente":
-            if ($("#tipousuario").val() === 'ADMIN' && $("#anulado").val() !== 'S') {
+            if (confirma_impresion === "SI") {
                 window.open('ImprimeEntregados.php?pdfcodgirosucursal=' + $('#codgirosucursal').val() + '&pdffecha=' + $('#pdffecha').val() + '&pdfcodsucursalo=' + $('#codsucursalo').val() +
                         '&pdforigen=' + $('#origen').val() + '&pdfenombresb=' + $('#enombresb').val() + '&pdfenombresr=' + $('#enombresr').val() + '&pdfeimporte_r=' + $('#eimporte_r').val() +
                         '&pdfnick=' + $('#nick').val(), '_blank');  // changed here (cambiado aquí)
             } else {
-                jAlert("NO tienes permiso para volver a imprimir, comunicate con el Administrador", "Transferencias");
+                $.alert("NO tienes permiso para volver a imprimir, comunicate con el Administrador...", "Giros - Transferencias");
             }
             break;
         case "alguardar":
@@ -450,7 +456,7 @@ function eRecuperaFila(eidfila) {
     var sucursalo = elTableCells[1].innerHTML;
     document.getElementById("codsucursalo").value = sucursalo.substring(0, 3);
     $("#usuaentrega").val(elTableCells[18].innerHTML); // para verificar si fue pagado (originalmente = '---')
-    $("#anulado").val(elTableCells[22].innerHTML);
+    $("#anulado").val(elTableCells[23].innerHTML);
     $("#correlativo").val(elTableCells[24].innerHTML);
     $("#correlativo_img").val(elTableCells[24].innerHTML);
     $("#sele_fe").val(eidfila);
@@ -461,7 +467,7 @@ function eRecuperaFila(eidfila) {
 //  document.getElementById("eimprimir_r").disabled = false;
     document.getElementById("imprime_entregados").disabled = false;
     console.log($("#correlativo_img").val());
-    console.log($("#codgirosucu_img").val());
+    console.log($("#anulado").val());
     
 }
 
@@ -724,15 +730,12 @@ $(document).ready(function () {
     });
 
     $('#imprime_entregados').click(function () {
-        if ($("#tipousuario").val().trim() === "ADMIN") {
-            if ($("#usuaentrega").val().trim() === '---')
-            {
-                jAlert("No puede imprimir PENDIENTE, verifique...", "Giros - Transferencias");
-            } else {
-                fnImprimeEntregados('manualmente');
-            }
+        if ($("#usuaentrega").val().trim() === '---')
+        {
+            $.alert("No puede imprimir PENDIENTE, verifique...", "Giros - Transferencias");
+            //$.alert({title: 'Giros - Transferencias', content:'No puede imprimir PENDIENTE, verifique...' });
         } else {
-            jWarning("Solo Administrador, verifique...", "Giros - Transferencias");
+            fnImprimeEntregados('manualmente');
         }
     });
 
@@ -2229,4 +2232,25 @@ function fnInsertaVoucher() {
     return false;
 }
 
-
+function VerificaImprimir(){
+    var usuario=$("#tipousuario").val();
+    var fecha_elegida = $('#efecha_r').val().replace('-','/');
+    var fecha_php = $('#efechahoy').val().replace('-','/');    
+    var rpta;
+    if ( fecha_elegida < fecha_php ) {
+        if ( $("#anulado").val() === 'N'){
+            if (usuario === 'ADMIN')    { rpta='SI';}
+            if (usuario === 'OPERADOR') { rpta='NO';}
+            
+        } else { rpta='NO';}
+    }
+    if ( fecha_elegida === fecha_php ) {
+        if ( $("#anulado").val() === 'N'){
+            if (usuario === 'ADMIN')    { rpta='SI';}
+            if (usuario === 'OPERADOR') { rpta='SI';}
+            
+        } else { rpta='NO';}    
+    }    
+    return rpta;
+            
+}

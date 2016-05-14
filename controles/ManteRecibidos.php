@@ -38,7 +38,8 @@ if( $_POST["opt"]==="R" )
         "data_edita"            =>$recibidos["data_edita"],
         "nro_boleta"            =>$recibidos["nro_boleta"],
 	"en_efectivo"           =>$recibidos["en_efectivo"],
-        "correlativo"           =>$recibidos["correlativo"]
+        "correlativo"           =>$recibidos["correlativo"],
+        "voucher"               =>$recibidos["voucher"]    
         );
     }
     $jsonre=json_encode($datos);
@@ -77,7 +78,8 @@ if( $_POST["opt"]==="E" )
         "nom_sucursal"          =>$recibidos["nom_sucursal"],
         "datapago"              =>$recibidos["datapago"],
         "anulado"               =>$recibidos["anulado"],
-        "correlativo"           =>$recibidos["correlativo"]
+        "correlativo"           =>$recibidos["correlativo"],
+        "voucher"               =>$recibidos["voucher"]    
         );
     }
     
@@ -241,7 +243,7 @@ if($_POST["opt"]==="update")
 
 if($_POST["opt"]==="BOLETA")
 { 
-    $query=$mysqli->query( " call spInsertaBoletas('".$_POST["serie"]."','".$_POST["nro"]."','".$_POST["dni"]."','".$_POST["direccion"]."','".$_POST["descripcion"]."','".$_POST["fecha"]."','".$_POST["importe"]."','".$_POST["userprint"]."','".$_POST["idgiro"]."','".$_POST["idempresa"]."' )");
+    $query=$mysqli->query("call spAdministraBoletas('".$_POST["serie"]."','".$_POST["nro"]."','".$_POST["codsucu"]."','".$_POST["dni"]."','".$_POST["direccion"]."','".$_POST["descripcion"]."','".$_POST["fecha"]."','".$_POST["importe"]."','".$_POST["userprint"]."','".$_POST["idgiro"]."','---','".$_POST["idempresa"]."','id_boleta','valor','dni_o_apel','fechai','fechaf','I')");
      $datos=array();
     while ($recibidos=$query->fetch_array()){
     $datos[]=array(        
@@ -249,6 +251,20 @@ if($_POST["opt"]==="BOLETA")
         "nombres"       =>$recibidos["nombres"],
         "fechahora_crea"    =>$recibidos["fechahora_crea"],
         "usuaimprime"   =>$recibidos["usuaimprime"]
+        );
+    }
+    $jsonsucu=json_encode($datos);
+    echo ( $jsonsucu );
+}
+
+if($_POST["opt"]==="ULTIMABOLETA")
+{ 
+    $query=$mysqli->query("call spRecuperaUltimaBoleta('".$_POST["codsucu"]."','".$_POST["nomdoc"]."','".$_POST["idempresa"]."')");
+    $datos=array();
+    while ($recibidos=$query->fetch_array()){
+    $datos[]=array(        
+        "serie"     =>$recibidos["serie"],
+        "ultimo"    =>$recibidos["ultimo"]
         );
     }
     $jsonsucu=json_encode($datos);

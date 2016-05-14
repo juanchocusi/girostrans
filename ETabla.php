@@ -7,7 +7,8 @@
         <table  id="TEntregados" class="table-condensed table-bordered" >
           <thead >
             <tr>
-              <th>Nro</th>                
+              <th>Nro</th>
+              <th>...</th>
               <th>Codigo</th>
               <th>Fecha</th>
               <th >DNI-B</th>               
@@ -36,7 +37,8 @@
           </thead>
           <tfoot>
             <tr>
-              <th></th>                
+              <th></th>
+              <th></th>
               <th></th>
               <th></th>
               <th ></th>               

@@ -3,8 +3,8 @@ date_default_timezone_set("America/Lima");
 //require_once("controles/classRecibeEntrega.php");
 session_start();
 require 'controles/ConectaMySql.php';
-$Fechahora = date("Y-m-d H:i:s");
-$FechaHoy = date("Y/m/d");
+$Fechahora = date("Y/m/d H:i:s");
+$FechaHoy = date("Y-m-d");
 
 if (!isset($_SESSION["nick"])) {
     Header("Location : Logout.php");

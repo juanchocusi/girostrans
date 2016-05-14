@@ -38,11 +38,19 @@ function FnMuestraGiros() {
 }
 
 function CreaTablaGiros(json) {
-  var html;  var i = 0;
+  var html;
+  var i = 0;
+  var boucher;
   for (var x = 0; x < json.length; x++) {
     i = x + 1;
     html += "<tr id='G[" + x + "]' class='dato' onclick='fnSeleFila(this.id);'>";
       html += "<td>" + i + "</td>";
+      boucher = json[x].boucher;
+      if (boucher === 'XXX') {
+            html += "<td>" + " <button id='btn_anular' title='' type='button' aria-hidden='true' class='btn btn-default btn-xs' ><span class='glyphicon glyphicon-remove'></span></button>" + "</td>";
+        } else {
+            html += "<td>" + " <button id=" + json[x].cod_girosucu + " title='Boucher' type='button' aria-hidden='true' class='btn btn-default btn-xs' ><span class='glyphicon glyphicon-picture blue'></span></button>" + "</td>";
+        }
       html += "<td>" + json[x].cod_girosucu +               "</td>";
       html += "<td>" + json[x].fechahora_registro +         "</td>";
       html += "<td>" + json[x].dni_rucb +                   "</td>";
@@ -88,7 +96,7 @@ function CreaTablaGiros(json) {
       }
     },
     "aoColumnDefs": [{"bSortable": false, "aTargets": [0]}],
-    "aaSorting": [[1, 'asc']], "sScrollY": ($(window).height() - 150), "bPaginate": false,
+    "aaSorting": [[1, 'asc']], "sScrollY": ($(window).height() - 160), "bPaginate": false,
     "bLengthChange": false, "bFilter": false, "bSort": true,
     "bInfo": false, "bAutoWidth": true, "bSortClasses": false //, "bJQueryUI": true
   });
@@ -137,11 +145,11 @@ $(document).ready(function () {
         }
       },
       "aoColumnDefs": [{"bSortable": false, "aTargets": [0]}],
-      "aaSorting": [[1, 'asc']], "sScrollY": ($(window).height() - 150), "bPaginate": false,
+      "aaSorting": [[1, 'asc']], "sScrollY": ($(window).height() - 160), "bPaginate": false,
       "bLengthChange": false, "bFilter": false, "bSort": true,
       "bInfo": false, "bAutoWidth": true, "bSortClasses": false //, "bJQueryUI": true
     });
-    objDataTable.fnSettings().oScroll.sY = 151;
+    objDataTable.fnSettings().oScroll.sY = 161;
     objDataTable.fnDraw();
 
   });

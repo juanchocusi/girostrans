@@ -35,7 +35,8 @@ if ($_POST["opcion"] === "MOSTRAR") {
             
             "anulado"           => $col["anulado"],
             "data_edita"        => $col["data_edita"],
-            "nro_boleta"        => $col["nro_boleta"]
+            "nro_boleta"        => $col["nro_boleta"],
+            "boucher"           => $col["boucher"]
         );
     }
     $json = json_encode($datos);

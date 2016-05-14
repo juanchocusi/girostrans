@@ -196,7 +196,7 @@
 
 <div id="dialogo_voucher">
     <div class="table-responsive" > 
-        <table id="TVoucher" class="table table-condensed table-bordered ">
+        <table id="TVoucher" class="table-condensed table-bordered ">
             <thead>
                 <tr>
                     <th class="oculto">idvoucher</th>
@@ -205,8 +205,8 @@
                     <th>OBSERVACION</th>
                     <th>FECHA</th>
                     <th class='oculto'>USUARIO</th>
-                    <th>Impreso</th>
-                    <th>Imprime</th>                    
+                    <th>Impreso por</th>
+                    <th>Fecha de Impresión</th>                    
                 </tr>
             </thead>
             <tbody id="tbody_voucher" >
@@ -216,11 +216,11 @@
     </div>
 </div>    
 
-<div id="dialogo_voucher_img" title="Voucher">
+<div id="dialogo_voucher_img" title="Boucher">
     <div id="voucher_img" class="printableArea">
         <img src="php/uploads/juancho411.jpg" id="imagen"/>
     </div>
-    <button type="button" id="btn_imprime_voucher" class="btn btn-default btn-xs blue">Imprimir Voucher</button>
+    <button type="button" id="btn_imprime_voucher" class="btn btn-default btn-xs blue">Imprimir Boucher</button>
 </div>
 
 
@@ -274,3 +274,4 @@
 <input type="hidden" id="en_efectivo">
 <input type="hidden" id="otros_ing">
 <input type="hidden" id="codigovoucher">
+<input type="hidden" id="correlativo_v">

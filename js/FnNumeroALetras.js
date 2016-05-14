@@ -331,5 +331,5 @@ function covertirNumLetras(number)
    }
    /* Regresa el número en cadena entre paréntesis y con tipo de moneda y la fase M.N.*/
    //alert( cad+moneda+centavos+" N. SOLES");
-   return ( cad+moneda+centavos+" N. SOLES");
+   return ( cad+moneda+centavos+" SOLES");
 }

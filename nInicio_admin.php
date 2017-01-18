@@ -20,12 +20,12 @@ if (!isset($_SESSION)) {
     $consulta = "call spIniciaSaldos('".$idempresa."'); ";
     $result = $mysqli->query($consulta);
 
-    $sql_sucursales = "SELECT cod_sucursal,nom_sucursal from sucursal where anulado='N' and idempresa=mid('".$idempresa."',1,1) order BY nom_sucursal";
-    $result_sucursal = $mysqli->query($sql_sucursales);
-    $optsucursales = '<option value="T">Todas las Sucursales</option>';
-    while ($fila = $result_sucursal->fetch_array()) {
-        $optsucursales.='<option value="' . $fila["cod_sucursal"] . '">' . $fila["nom_sucursal"] . '</option>';
-    }
+//    $sql_sucursales = "SELECT cod_sucursal,nom_sucursal from sucursal where anulado='N' and idempresa=mid('".$idempresa."',1,1) order BY nom_sucursal";
+//    $result_sucursal = $mysqli->query($sql_sucursales);
+//    $optsucursales = '<option value="T">Todas las Sucursales</option>';
+//    while ($fila = $result_sucursal->fetch_array()) {
+//        $optsucursales.='<option value="' . $fila["cod_sucursal"] . '">' . $fila["nom_sucursal"] . '</option>';
+//    }
 }
 ?>
 <!DOCTYPE html>
@@ -43,12 +43,11 @@ if (!isset($_SESSION)) {
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
     <link rel='stylesheet' type='text/css' href='css/jquery.alerts.css'>
-    <!--<link rel="stylesheet" type="text/css" href="css/simple-sidebar.css">-->
     <link rel="stylesheet" type="text/css" href="css/css_tools.css"/>
-    <!--<link rel="stylesheet" type="text/css" href="css/jquery.dataTables-1.10.5.min.css"/>-->
-
     <link rel="stylesheet" type="text/css" href="css/css_inicio.css">
     <link rel="stylesheet" type="text/css" href="css/simple-sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/uploadfile.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -66,12 +65,11 @@ if (!isset($_SESSION)) {
         <?php include("InicioTablas.php"); ?>
 
       </div>
-    </div>
-    
-    <input type="hidden" id="sele_f" value="G[0]" >
-    
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.10.min.js"></script>
+        <?php include("InicioDialogos.php"); ?>
+    </div>    
+      
+      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.11.4.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.dataTables-1.10.5.min.js"></script>
     <script type="text/javascript" src="js/jquery.alerts.mod.js"></script>
@@ -80,7 +78,9 @@ if (!isset($_SESSION)) {
 
     <script type="text/javascript" src="js/FuncionesInicio.js"></script>    
     <script type="text/javascript" src="js/validacampos.js"></script>   
-    <script type="text/javascript" src="js/CierraSesionInactivo.js"></script>   
+    <script type="text/javascript" src="js/CierraSesionInactivo.js"></script>
+    <script type="text/javascript" src="js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadfile.js"></script>
   </body>
 
 </html>

@@ -5,7 +5,7 @@ $fecha = date("Y-m-d");
 require 'ConectaMySql.php';
 
 if ($_POST["opcion"] === "MOSTRAR") {
-    $query = $mysqli->query("call spMuestraGiros('" . $_POST["codsucu"] . "','" . $_POST["empresa"] . "','" . $_POST["fechai"] . "','" . $_POST["fechaf"] . "','" . $_POST["opt"] . "')");
+    $query = $mysqli->query("call spMuestraGiros('".$_POST["codsucu"]."','".$_POST["empresa"]."','".$_POST["fechai"]."','".$_POST["fechaf"]."','".$_POST["opt"]."','".$_POST["valor"]."','".$_POST["opv"]."')");
     $datos = array();
     while ($col = $query->fetch_array()) {
         $datos[] = array(
@@ -27,16 +27,11 @@ if ($_POST["opcion"] === "MOSTRAR") {
             "usuario_registra"  => $col["usuario_registra"],
             "observagiro"       => $col["observagiro"],
             
-            "ciudad_destino"    => $col["ciudad_destino"],
             "usuario_entrega"   => $col["usuario_entrega"],
             "fechahora_entrega" => $col["fechahora_entrega"],
-            "nom_sucursal"      => $col["nom_sucursal"],
             "datapago"          => $col["datapago"],
-            
+            "correlativo"       => $col["correlativo"],
             "anulado"           => $col["anulado"],
-            "data_edita"        => $col["data_edita"],
-            "nro_boleta"        => $col["nro_boleta"],
-            "boucher"           => $col["boucher"]
         );
     }
     $json = json_encode($datos);

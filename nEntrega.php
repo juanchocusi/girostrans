@@ -19,7 +19,7 @@ $sql_agt = "SELECT c.nrocuenta,b.desc_banco FROM bancos b join cuentas c on b.id
 $resultado = $mysqli->query($sql_agt);
 $agt = '<option value="0">Elige Agente...</option>';
 while ($mifila = $resultado->fetch_array()) {
-    $agt.='<option value="' . $mifila["nrocuenta"] . '">' . $mifila["desc_banco"] . '</option>';
+    $agt .= '<option value="' . $mifila["nrocuenta"] . '">' . $mifila["desc_banco"] . '</option>';
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES"
@@ -53,18 +53,18 @@ while ($mifila = $resultado->fetch_array()) {
     <body>
 
         <div id="wrapper">
-<?php include("menu.php"); ?>    
+            <?php include("menu.php"); ?>    
             <div id="page-content-wrapper" >    
-            <?php include("ECabecera.php"); ?>
+                <?php include("ECabecera.php"); ?>
 
                 <?php include("EFormulario.php"); ?>
 
                 <?php include("ETabla.php"); ?>
-                                  
+
             </div> <!-- page-content-wrapper -->    
 
         </div> <!-- wrapper -->    
-<?php include("EDialogo.php"); ?>      
+        <?php include("EDialogo.php"); ?>      
 
         <script type="text/javascript" language="javascript" src="js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" language="javascript" src="js/jquery-ui-1.10.min.js"></script>

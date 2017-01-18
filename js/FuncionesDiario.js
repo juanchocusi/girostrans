@@ -943,7 +943,7 @@ $("#div_agente").css("display","none");
 
 $("#lista_conceptos").change( function (){
   var optionSelected = $('#lista_conceptos').val();
-  //console.log(optionSelected);
+  console.log(optionSelected);
         if (optionSelected === '20') { // SALIDA DE EFECTIVO A OTRA SUCURSAL
             $("#div_sucursales").toggle(700);
             $("#lista_sucursales").prop("selectedIndex", 0);

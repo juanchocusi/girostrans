@@ -40,8 +40,21 @@ $(document).ready(function () {
 //            $("#nusuario").val(data.item.value);
 //        }
 //    });
-    
 
+console.log(token());
+$("#txt_token").val(token);
+$("#txt_token1").val(token1);
 
 });
 
+    
+function random() {
+    return Math.random().toString(36).substr(2); // Eliminar `0.`
+};
+ 
+function token() {
+    return random(); // Para hacer el token más largo
+};
+ function token1() {
+    return random(); // Para hacer el token más largo
+};

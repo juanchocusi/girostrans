@@ -22,7 +22,7 @@
                     echo "</ul> </li>";
                 }
                 ?>
-                
+
                 <li> <a href="nRecepcion.php"><i class="fa fa-desktop"></i>Recepción</a> </li>
                 <li> <a href="nEntrega.php" ><i class="fa fa-money "></i>Entrega</a> </li>                        
                 <li> <a href=""><i class="fa fa-wrench"></i>Herramientas<span class="fa arrow"></span></a>
@@ -37,15 +37,15 @@
                 </li>
                 <li> <a href=""><i class="fa fa-table"></i>Tablas<span class="fa arrow"></span> </a>
                     <ul class="nav nav-second-level">
-                      <?php  
-                      if ($_SESSION['tipousuario'] === 'ADMIN') {  
-                        //*/<li> <a href="nusuarios.php" >Asociados-Usuarios </a></li>                                */
-                        echo "  <li> <a href='nusuarios.php'>Asociados-Usuarios</a>  </li>";
-                        echo "  <li> <a href='nsucursales.php'>Sucursales</a>  </li>";
-                        echo "  <li> <a href='nbancos.php'>Bancos-Agentes</a>  </li>";
-                        echo "  <li> <a href='ntransacciones.php'>Transacciones</a>  </li>";
+                        <?php
+                        if ($_SESSION['tipousuario'] === 'ADMIN') {
+                            //*/<li> <a href="nusuarios.php" >Asociados-Usuarios </a></li>                                */
+                            echo "  <li> <a href='nusuarios.php'>Asociados-Usuarios</a>  </li>";
+                            echo "  <li> <a href='nsucursales.php'>Sucursales</a>  </li>";
+                            echo "  <li> <a href='nbancos.php'>Bancos-Agentes</a>  </li>";
+                            echo "  <li> <a href='ntransacciones.php'>Transacciones</a>  </li>";
                         }
-                      ?>  
+                        ?>  
                         <!--<li> <a href="nbancos.php" >Bancos-Agentes</a> </li>-->
                         <li> <a class="fa fa-users" href="nClientes.php" >  Clientes </a> </li>                        
                         <!--<li> <a href="nsucursales.php" >Sucursales </a> </li>-->
@@ -58,7 +58,8 @@
                 <li> <a href=""> <i class="fa fa-credit-card"></i>Cuentas<span class="fa arrow"></span> </a>
                     <ul class="nav nav-second-level">
                         <li> <a href="nAgentes.php">Agentes </a></li>
-                        <li> <a href="nCuentaUsuario.php" >Cuentas de Asociado </a> </li>
+                        <li> <a href="nCuentaUsuario.php" >Cuentas Asociado </a> </li>
+                        <li> <a href="nCuentasCliente.php">Cuentas Cliente </a> </li>
                     </ul>
                 </li>
                 <li> <a href=""><i class="fa fa-user"></i>Login <span class="fa arrow"></span> </a>

@@ -17,7 +17,11 @@
 <div class="col-xs-6 col-sm-4">    
     <div class="input-group input-group-sm">
         <span id="cuenta" class="input-group-addon" title="Pertenece a:">Pertenece a:</span>             
-        <select class="form-control" id="select_pertence"  > <option value="A">Agente</option> <option value="CA">CtaAsociado</option> </select>
+        <select class="form-control" id="select_pertence"  > 
+            <option value="A">Agente</option> 
+            <option value="CA">Cta Asociado</option>
+            <option value="CC">Cta Cliente</option>
+        </select>
     </div>      
     <input type="button" id="btn_nuevo"    class="btn btn-default  btn-xs blue" value="Nuevo" >
     <input type="button" id="btn_guardar"  class="btn btn-default  btn-xs blue" value="Guardar">

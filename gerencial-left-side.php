@@ -30,7 +30,7 @@
                 </span>-->
             </a>
         </li>
-        <li>            
+<!--        <li>            
             <a href="#">
                 <i class="fa fa-calendar-o"></i> <span>Asociados + Agentes</span>
                 <input type="text" id="total_AsociadosAgentes" class="txt_totales" placeholder=""> 
@@ -39,7 +39,7 @@
                 <span>Total+Bono </span>
                 <input type="text" id="total_1" class="txt_totales">
             </a>
-        </li>
+        </li>-->
 <!--        <li>
             <a href="#">
                 <i class="fa fa-tasks"></i> <span>Cuentas x Pagar</span>
@@ -69,7 +69,7 @@
         -->
         <li>        
     <!--///////////////////////////////// FLUJO DE CAJA /////////////////////////////////////////-->    
-        <div class="">            
+<!--        <div class="">            
             FLUJO DE CAJA
             <div id="" class="table-responsive ">                
                 <table id="TFlujoCajaE" class=" table-condensed table-bordered table-striped ">
@@ -80,14 +80,14 @@
                         </tr>
                     </thead>                
                     <tbody id="body_FlujoCajaE" >
-<!--                        <tr>
+                        <tr>
                             <td> aaaaaaaaaaa</td>
                             <td> 11111111111</td>
                         </tr>
                         <tr>
                             <td> bbbbbbbb</td>
                             <td> 2222222222222222</td>
-                        </tr>-->
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -97,7 +97,7 @@
                     </tfoot>
                 </table>
             </div>
-        </div>
+        </div>-->
     
         </li>
         <li>

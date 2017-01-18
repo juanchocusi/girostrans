@@ -20,13 +20,13 @@ table {font-size: 11px;}
 #tpendientes{text-align: right;}
 #total_1{text-align: right;font-weight: bold}
 
-/*#total_AsociadosAgentes{text-align: right; font-weight: bold}
-#suma_comi_itf{text-align: right; font-weight: bold}
-#suma_ctaxpagar{text-align: right; font-weight: bold}
-#suma_ctaxcobrar{text-align: right; font-weight: bold}
-#suma_pendientes{text-align: right; font-weight: bold}
-#total_efectivo_neto{text-align: right; font-weight: bold}
-#total_gastos_sucursales{text-align: right; font-weight: bold}*/
+#t_itf{text-align: right; font-weight: bold}
+#t_comi_agente{text-align: right; font-weight: bold}
+#t_otros_gastos{text-align: right; font-weight: bold}
+#t_saldo_cuenta{text-align: right; font-weight: bold}
+#t_saldo_efectivo{text-align: right; font-weight: bold}
+#t_gasto_Agente{text-align: right; font-weight: bold}
+#t_utilidad_Agente{text-align: right; font-weight: bold}
 
 #tsaldoi{text-align: right; font-weight: bold}
 #tpendientes{text-align: right; font-weight: bold}

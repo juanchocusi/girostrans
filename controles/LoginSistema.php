@@ -23,6 +23,7 @@ while ($sucu = mysqli_fetch_assoc($result)) {
     $_SESSION['nick'] = $_POST['nusuario'];
     $_SESSION['codsucursal'] = $_POST['codsucursal'];
     $_SESSION['sucursal'] = $_POST['sucursal'];
+    $_SESSION['mi_token'] = $_POST['txt_token'];
 }
 
 if ($logueo > 0) {

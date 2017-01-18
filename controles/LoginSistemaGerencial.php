@@ -23,12 +23,14 @@ while ($sucu = mysqli_fetch_assoc($result)) {
     $_SESSION['tipousuario'] = $sucu['tipousuario'];
     $_SESSION['nick'] = $_POST['nusuario'];
     $_SESSION['idempresa'] = $_POST['empresa'];
+    $_SESSION['mi_token1'] = $_POST['txt_token1'];
   //  $_SESSION['sucursal'] = $_POST['sucursal'];
 }
 
 if ($logueo > 0) {
     if ($_SESSION['tipousuario'] === 'ADMIN') {
         header("Location: ../nGerencial.php");
+//        header("Location: ../gerencial/g_index.php");
     } /*else {
         header("Location: ../nInicio.php");
     }*/

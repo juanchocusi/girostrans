@@ -91,7 +91,7 @@
     <div class="col-sm-12 col-md-12">
         
         <div id="divtabla" class="table-responsive ">
-            Gastos x Sucursal
+            Gastos x Sucursalasasa
             <table id="TRGastosxSucursal" class=" table-condensed table-bordered ">
                 <thead>
                     <tr>

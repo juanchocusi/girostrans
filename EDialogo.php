@@ -305,9 +305,10 @@
 
     </div>
 </div>
-<!--============================ DIALOGO ASIGNA CUENTAS ============================== -->
+<!--============================ DIALOG Disponibilidad ============================== -->
 <div id="diag_SaldoDisponible">
-    <div id="carga" style="display:none"> <img src="img/loading005.gif"> </div>
+    <div id="carga_sa" style="display:none"> <img src="img/loader33.gif"> </div>
+    <input type="text" id="busca_sa" style="text-transform:uppercase" placeholder="Buscar" class="form-control">
     <div class="table-responsive "> 
         <table id="TSaldoDisponible" class=" table-condensed table-bordered table-striped">
             <thead>
@@ -317,29 +318,81 @@
                     <th>Banco</th>
                     <th>Movs</th>
                     <th>Saldo Cuenta</th>
-
                     <th>Disponible</th>
                 </tr>
             </thead>
-<!--            <tfoot>
+            <tfoot>
                 <tr>                            
                     <th></th>
                     <th></th>
                     <th>Totales</th>
-                    <th id="tmvos"></th>
-                    <th id="tsaldocta"></th>                    
-                    
-                    <th id="disponible"></th>
+                    <th id="t_movs"></th>
+                    <th id="t_saldo_cta"></th>
+                    <th id="t_disponible"></th>
                 </tr>
-            </tfoot>-->
+            </tfoot>
             <tbody id="body_SaldoDisponible" >
 
             </tbody>
-
         </table>
-
     </div>
 </div>
+<!--============================ DIALOG FLUJO SUCURSALES ============================== -->
+<div id="diag_FlujoSucursales">
+    <div id="carga_fs" style="display:none"> <img src="img/loader33.gif"> </div>
+    <input type="text" id="busca_fs" style="text-transform:uppercase" placeholder="Buscar" class="form-control">
+    <div class="table-responsive "> 
+        <table id="TFlujoSucursales" class=" table-condensed table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Sucursal</th>
+                    <th>Ingresos</th>
+                    <th>Egresos</th>
+                    <th>Saldo</th>
+                    <th>Pendiente</th>
+                    <th>Efectivo</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>                            
+                    <th></th>
+                    <th>Totales</th>
+                    <th id="t_ingresos"></th>
+                    <th id="t_egresos"></th>
+                    <th id="t_saldofinal"></th>
+                    <th id="t_pendiente"></th>
+                    <th id="t_efectivoneto"></th>
+                </tr>
+            </tfoot>
+            <tbody id="body_TFlujoSucursales" >
+
+            </tbody>
+        </table>
+    </div>
+    =========== Resumen  =============
+    <div class="table-responsive "> 
+        <table id="TResumen" class=" table-condensed table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Saldo Final</th>
+                    <th>Efectivo Neto</th>
+                    <th>Saldo Cuenta</th>
+                    <th>Saldo Efectivo</th>
+                    <th>Suma Ctas Asociados</th>
+                    <th>EFECTIVO REAL</th>
+                    <th>EFECTIVO REAL</th>
+                </tr>
+            </thead>            
+            <tbody id="body_TResumen" >
+
+            </tbody>
+        </table>
+    </div>   
+    
+</div>
+
 <!--============================ DIALOGO CARGA IMAGEN ============================== -->
 <div id="dialogo_CargaImagen">
     <input type="hidden" id="correlativo_img" readonly="readonly">   
@@ -355,10 +408,40 @@
     <div class="form-group">        
         <button type="button" id="btn_guarda_voucher" class="btn btn-success">Guardar BOUCHER</button>
     </div>   
-                
+
 </div>
 
- 
+<div id="diag_SaldoDisponibleAgente">
+    <div id="carga_da" style="display:none"> <img src="img/loading005.gif"> </div>
+    <input type="text" id="busca_da" style="text-transform:uppercase" placeholder="Buscar" class="form-control">
+    <div class="table-responsive "> 
+        <table id="TSaldoDisponibleAgente" class=" table-condensed table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Banco</th>
+                    <th>nro cuenta</th>
+                    <th>Saldo Cuenta</th>
+                    <th>Saldo Efectivo</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>                            
+                    <th></th>
+                    <th>Totales</th>
+                    <th id="t_saldo_cuenta"></th>
+                    <th id="t_saldo_efectivo"></th>                    
+                </tr>
+            </tfoot>
+            <tbody id="body_SaldoDisponibleAgente" >
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div> 
+
+
 
 <input type="hidden" id="md_dnib">
 <input type="hidden" id="md_dnir">
@@ -393,7 +476,8 @@
 <input type="hidden" id="nick"                   value="<?php echo $_SESSION['nick'] ?>" >
 <input type="hidden" id="efechahoy"              value="<?= $FechaHoy ?>">
 <input type="hidden" id="efechahorahoy"          value="<?= $Fechahora ?>">
-<input type="hidden" id="tipousuario"            value="<?php echo $_SESSION['tipousuario'] ?>">    
+<input type="hidden" id="tipousuario"            value="<?php echo $_SESSION['tipousuario'] ?>">
+<input type="hidden" id="mi_token"               value="<?php echo $_SESSION['mi_token'] ?>">
 <input type="hidden" id="sele_fe" value="R[0]">
 <input type="hidden" id="anulado">
 <input type="hidden" id="usuaentrega" >

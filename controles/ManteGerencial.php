@@ -10,12 +10,15 @@ if ($_POST["opcion"] === "MOSTRAR") {
     while ($col = $query->fetch_array()) {
         $datos[] = array(
             "fecha" => $col["fecha"],
-            "iniciales" => $col["iniciales"],
-            "nrocuenta" => $col["nrocuenta"],
-            "comision_itf" => $col["comision_itf"],
-            "otrosgastos" => $col["otrosgastos"],
-            "saldo_cuenta" => $col["saldo_cuenta"],
-            "saldo_efectivo" => $col["saldo_efectivo"]
+            "iniciales"      => $col["iniciales"],
+            "nrocuenta"      => $col["nrocuenta"],
+            "comision_itf"   => $col["comision_itf"],
+            "comision_agente"=> $col["comision_agente"],
+            "otros_gastos"   => $col["otros_gastos"],
+            "saldo_cuenta"   => $col["saldo_cuenta"],
+            "saldo_efectivo" => $col["saldo_efectivo"],
+            "gasto_agente"   => $col["gasto_agente"],
+            "utilidad_neta"  => $col["utilidad_neta"]
         );
     }
     $json = json_encode($datos);
@@ -31,15 +34,17 @@ if ($_POST["opcion"] === "MOSTRAR_A") {
     $datos = array();
     while ($col = $query->fetch_array()) {
         $datos[] = array(
-            "fecha" => $col["fecha"],
-            "nusuario" => $col["nusuario"],
-            "iniciales" => $col["iniciales"],
-            "nrocuenta" => $col["nrocuenta"],
-            "otrosgastos" => $col["otrosgastos"],
-            "comision_inter" => $col["comision_inter"],
-            "bono" => $col["bono"],
-            "comision_itf" => $col["comision_itf"],            
-            "saldo" => $col["saldo"]
+            "fecha"             => $col["fecha"],
+            "nusuario"          => $col["nusuario"],
+            "iniciales"         => $col["iniciales"],
+            "nrocuenta"         => $col["nrocuenta"],
+            "otrosgastos"       => $col["otrosgastos"],
+            "cantidad_telegiro" => $col["cantidad_telegiro"],
+            "comision_telegiro" => $col["comision_telegiro"],
+            "comision_itf"      => $col["comision_itf"],
+            "saldo"             => $col["saldo"],
+            "gastos"            => $col["gastos"],
+            "utilidad_neta"     => $col["utilidad_neta"]
         );
     }
     $json = json_encode($datos);
@@ -51,42 +56,32 @@ if ($_POST["opcion"] === "MOSTRAR_A") {
 }
 
 if ($_POST["opcion"] === "MOSTRAR_G") {
-    $query = $mysqli->query("call spRptGastosxSucursal('" . $_POST["fechai"] . "','" . $_POST["fechaf"] . "','".$_POST["idempresa"]."')");
+    $query = $mysqli->query("call spRptGastosxSucursal('" . $_POST["fechai"] . "','" . $_POST["fechaf"] . "','".$_POST["idempresa"]."','".$_POST["token"]."')");
     $datos = array();
     while ($col = $query->fetch_array()) {
         $datos[] = array(
-            "fecha" =>          $col["fecha"],
-            "codsucu" =>        $col["codsucu"],
-            
-            "pendientes" =>     $col["pendientes"],
-            "varios" =>         $col["varios"],
-            "letras" =>         $col["letras"],
-            "combustibles" =>   $col["combustibles"],
-            "alimentos" =>      $col["alimentos"],
-            "viaticos" =>       $col["viaticos"],
-            "ctaxpagar" =>      $col["ctaxpagar"],
-            "otros" =>          $col["otros"],
-            "entregados" =>     $col["entregados"],            
-            "traslado_efectivo" => $col["traslado_efectivo"],
-            "total" =>          $col["total"],
-            "totalgastos" =>    $col["totalgastos"]
-                
-        );
-    }
-    $json = json_encode($datos);
-    echo ( $json );
-}
-
-if ($_POST["opcion"] === "T_ING_SAL") {
-    $query = $mysqli->query(" select fecha,codsucu,tingresos-tsalidas as saldofinal,pendientes, tingresos-tsalidas-pendientes as efectivo_neto from tmp_totales_ingresos_salidas ");
-    $datos = array();
-    while ($col = $query->fetch_array()) {
-        $datos[] = array(
-            "fecha" =>         $col["fecha"],
-            "codsucu" =>       $col["codsucu"],
-            "saldofinal" =>    $col["saldofinal"],
-            "pendientes" =>    $col["pendientes"],
-            "efectivo_neto" => $col["efectivo_neto"]            
+            "fecha" =>                  $col["fecha"],
+            "codsucu" =>                $col["codsucu"],            
+            "pendientes" =>             $col["pendientes"],
+            "pago_giros_bancos" =>      $col["pago_giros_bancos"],
+            "pago_comi_giro" =>         $col["pago_comi_giro"],
+            "pago_comi_retiro" =>       $col["pago_comi_retiro"],
+            "transporte" =>             $col["transporte"],
+            "pago_letras_bancos" =>     $col["pago_letras_bancos"],
+            "pago_util_mante" =>        $col["pago_util_mante"],
+            "pago_servicios" =>         $col["pago_servicios"],
+            "alimentos" =>              $col["alimentos"],
+            "viaticos" =>               $col["viaticos"],
+            "honorarios" =>             $col["honorarios"],
+            "otros" =>                  $col["otros"],
+            "impuestos" =>              $col["impuestos"],            
+            "alquileres" =>             $col["alquileres"],
+            "entregados" =>             $col["entregados"],
+            "traslado_cta_agte" =>      $col["traslado_cta_agte"],
+            "traslado_efec_sucu" =>     $col["traslado_efec_sucu"],
+            "traslado_efec_asociado" => $col["traslado_efec_asociado"],
+            "totales" =>                $col["totales"],
+            "total_gastos" =>           $col["total_gastos"]                
         );
     }
     $json = json_encode($datos);
@@ -94,27 +89,27 @@ if ($_POST["opcion"] === "T_ING_SAL") {
 }
 
 if ($_POST["opcion"] === "MOS_INGXSUCURSAL") {
-    $query = $mysqli->query("call spRptIngresosxSucursal('" . $_POST["fechai"] . "','" . $_POST["fechaf"] . "','".$_POST["idempresa"]."')");
+    $query = $mysqli->query("call spRptIngresosxSucursal('" . $_POST["fechai"] . "','" . $_POST["fechaf"] . "','".$_POST["idempresa"]."','".$_POST["token"]."')");
     $datos = array();
     while ($col = $query->fetch_array()) {
-        $datos[] = array(
-            "fecha" =>             $col["fecha"],
-            "codsucu" =>           $col["codsucu"],
-            "saldo_inicial" =>     $col["saldo_inicial"],
-            "retiro_bancos" =>     $col["retiro_bancos"],
-            "transf_recibidas" =>  $col["transf_recibidas"],
-            "ctaxcobrar" =>        $col["ctaxcobrar"],
-            "otros_ing" =>         $col["otros_ing"],
-            "traslado_efectivo" => $col["traslado_efectivo"],
-            "total" =>             $col["total"]
+        $datos[] = array(            
+            "codsucu" =>                $col["codsucu"],
+            "fecha" =>                  $col["fecha"],
+            "saldo_inicial" =>          $col["saldo_inicial"],
+            "importe" =>                $col["importe"],
+            "cargo" =>                  $col["cargo"],            
+            "otros" =>                  $col["otros"],
+            "transf_recibidas" =>       $col["transf_recibidas"],            
+            "ajustes" =>                $col["ajustes"],
+            "otros_ing" =>              $col["otros_ing"],
+            "comi_recargas" =>          $col["comi_recargas"],            
+            "tras_efectivo_agt_sucu" => $col["tras_efectivo_agt_sucu"],
+            "tras_efectivo_sucu_sucu"=> $col["tras_efectivo_sucu_sucu"],            
+            "total" =>                  $col["total"]
         );
     }
     $json = json_encode($datos);
     echo ( $json );
-//    $datos['success'] = true;
-//    echo json_encode($datos);
-//    $datos->close();
-//    $mysqli->close();
 }
 
 if ($_POST["opcion"] === "MSASOCIADO") {
@@ -145,3 +140,26 @@ if($_POST["opcion"]==="LIMPIA") /*Limpia tabla tmp_totales_ingresos_salidas*/
 {    
     $result = $mysqli->query("truncate table tmp_totales_ingresos_salidas;");
 }
+
+if ($_POST["opcion"] === "FLUJOCAJA") {
+    $query = $mysqli->query("call spFlujoEfectivoCaja()");
+    $datos = array();
+    while ($col = $query->fetch_array()) {
+        $datos[] = array(
+            "fecha"         => $col["fecha"],
+            "codsucu"       => $col["codsucu"],
+            "ingresos"      => $col["ingresos"],
+            "egresos"       => $col["egresos"],
+            "saldototal"    => $col["saldototal"],
+            "pendientes"    => $col["pendientes"],
+            "efectivo_neto" => $col["efectivo_neto"],
+            "utilxsucursal" => $col["utilxsucursal"],
+            "gastos_netos"  => $col["gastos_netos"],
+            "ingreso_pasivo"=> $col["ingreso_pasivo"]
+        );
+    }
+    $json = json_encode($datos);
+    echo ( $json );
+}
+
+

@@ -324,4 +324,33 @@ if($_POST["opt"]==="VOUCHER"){
     }
 }
 
+
+if ($_POST["opt"] === "EGRESOSXSUCURSAL") {
+    $query = $mysqli->query("call spRptGastosxSucursal_('" . $_POST["fechai"] . "','" . $_POST["fechaf"] . "','".$_POST["idempresa"]."')");    
+}
+
+if ($_POST["opt"] === "INGRESOSXSUCURSAL") {
+    $query = $mysqli->query("call spRptIngresosxSucursal_('" . $_POST["fechai"] . "','" . $_POST["fechaf"] . "','".$_POST["idempresa"]."')");
+}
+
+if ($_POST["opt"] === "FLUJOSUCURSALES") {
+    $query = $mysqli->query(" select fecha,codsucu,tingresos,tsalidas,tingresos-tsalidas as saldofinal,pendientes,tingresos-tsalidas-pendientes as efectivo from tmp_totales_ingresos_salidas; ");
+    $datos = array();
+    while ($col = $query->fetch_array()) {
+        $datos[] = array(            
+            "fecha"      => $col["fecha"],
+            "codsucu"    => $col["codsucu"],
+            "tingresos"  => $col["tingresos"],
+            "tsalidas"   => $col["tsalidas"],
+            "saldofinal" => $col["saldofinal"],
+            "pendientes" => $col["pendientes"],
+            "efectivo"   => $col["efectivo"]            
+        );
+    }
+    $json = json_encode($datos);
+    echo ( $json );
+}
+
+
+
 $mysqli->close();

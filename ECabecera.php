@@ -15,8 +15,10 @@
         <li><a href="#"> <?php echo $_SESSION['sucursal'] ?> </a> </li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" class="glyphicon glyphicon-tasks blue" id="disponibilidad"  title="Saldo Disponible"></a></li>
-        <li><a href="#" class="glyphicon glyphicon-file blue" id="carga_imagen"  title="Subir Voucher"></a></li>
+        <li><a href="#" class="glyphicon glyphicon-home " id="DisponibilidadAgente"  title="Saldo Agentes"></a></li>  
+        <li><a href="#" class="glyphicon glyphicon-list-alt" id="FlujoSucursales"  title="Flujo Efectivo Sucursales"></a></li>  
+        <li><a href="#" class="glyphicon glyphicon-tasks " id="disponibilidad"  title="Saldo Asociados"></a></li>
+        <li><a href="#" class="glyphicon glyphicon-file " id="carga_imagen"  title="Subir Voucher"></a></li>
         <li> <input type="text" id="ebuscador" style="text-transform:uppercase" placeholder="Buscar" class="form-control"> </li>
         <li> <input type="text" id="efecha_r" name="efecha_r" value = "<?php echo date('Y-m-d') ?>"> </li>
         <li class="dropdown">
@@ -32,7 +34,7 @@
         </li>
         <li><a href="#muestra_form" id="muestra_formulario"  title="Oculta/Muestra Formulario">Formulario</a></li>
         <li><a href="#menu-toggle" id="mas_datose" title="Muestra mas datos de la Transaccion">+Datos</a></li>
-        <li><a href="#" class="glyphicon glyphicon-print blue" id="imprime_entregados"  title="Imprimir"></a></li>
+        <li><a href="#" class="glyphicon glyphicon-print" id="imprime_entregados"  title="Imprimir"></a></li>
       </ul>
     </div>
   </div>

@@ -95,16 +95,16 @@ while ($fila = $result_sucursal->fetch_array()) {
         <input type="hidden" id="fecha_transaccion">
 <!-- jQuery -->
             
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.10.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.alerts.mod.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery-ui-1.10.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery.alerts.mod.js"></script>
     <script type="text/javascript" language="javascript" src="js/jquery.metisMenu.js"></script>        
     <script type="text/javascript" language="javascript" src="js/custom.js"></script>
     
-    <script type="text/javascript" src="js/FuncionesCuentaUsuario.js"></script>    
-    <script type="text/javascript" src="js/validacampos.js"></script>   
-    <script type="text/javascript" src="js/CierraSesionInactivo.js"></script>           
+    <script type="text/javascript" language="javascript" src="js/FuncionesCuentaUsuario.js"></script>    
+    <script type="text/javascript" language="javascript" src="js/validacampos.js"></script>   
+    <script type="text/javascript" language="javascript" src="js/CierraSesionInactivo.js"></script>           
 </body>
 
 </html>    

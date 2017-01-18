@@ -81,7 +81,7 @@ $idempresa = $_SESSION['idempresa'];
                 <?php include("gerencial-right-side.php"); ?>
                 <!-- /.content -->
                 <div class="footer-main">
-                    Copyright &copy MoneyFlash, 2016
+                    Copyright &copy dataweb, 2017
                 </div>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -110,4 +110,6 @@ $idempresa = $_SESSION['idempresa'];
         
     </body>
     <input type="hidden" id="idempresa" value="<?php echo $_SESSION['idempresa']?>">
+    <input type="hidden" id="token_g" value="<?php echo $_SESSION['mi_token1']?>">
+    <input type="hidden" id="milag" >
 </html>

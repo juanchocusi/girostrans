@@ -6,16 +6,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>Modulo Administrativo</title>
-
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.10.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="js/FuncionesLogin.js"></script>
         <link rel="stylesheet" type="text/css" href="css/css_LoguinAdmin_Style.css" />
                 <!--<script src="js/modernizr.custom.63321.js"></script>-->
                 <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
+        
     </head>
     <body>
         <div class="container">
             <section class="main">
                 <form class="form-1" action="controles/LoginSistemaGerencial.php" method='post'>
+                    <input type="hidden" id="txt_token1" name="txt_token1" >
                     <p class="field">                          
+                        
                         <select  id="empresa" name="empresa" >
                             <option value="M">Money</option> 
                             <option value="P">Pantera</option> 

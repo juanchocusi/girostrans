@@ -46,7 +46,8 @@
                 <li> <a href=""> <i class="fa fa-credit-card"></i>Cuentas<span class="fa arrow"></span> </a>
                     <ul class="nav nav-second-level">
                         <li> <a href="nAgentes.php">Agentes </a></li>
-                        <li> <a href="nCuentaUsuario.php" >Cuentas de Asociado </a> </li>
+                        <li> <a href="nCuentaUsuario.php" >Cuentas Asociado </a> </li>
+                        <li> <a href="nCuentasCliente.php">Cuentas Cliente </a> </li>
                     </ul>
                 </li>
                 <li> <a href=""><i class="fa fa-user"></i>Login <span class="fa arrow"></span> </a>

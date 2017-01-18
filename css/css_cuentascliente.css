@@ -1,0 +1,18 @@
+table {font-size: 11px;}
+th {padding:5px;background:#555;color:#DAA520}
+td {padding:5px;border:solid #ddd;border-width:0 0 1px;}
+
+.dorado{
+    border-color: #DAA520;
+}
+
+#fechai {width: 90px}
+#fechaf {width: 90px}
+#total_i {text-align: right;} 
+#total_s {text-align: right;} 
+.title-c {color: #DAA520;}
+.content {color: #DAA520;}
+#btn_editar { border-color: #DAA520;}
+#btn_anular { border-color: #DAA520;}
+
+

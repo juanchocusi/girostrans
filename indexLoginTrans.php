@@ -40,6 +40,7 @@
                 <div class="content">    
 
                     <input type="text" id="codsucursal" name="codsucursal" readonly=""/>
+                    <input type="hidden" id="txt_token" name="txt_token" >
                     <input type="text" id="colorsucursal" name="colorsucursal" readonly="" size="5px"/>
                     <input type="text" id="fecha_i" name="fecha_i" value="<?php echo date("d/m/Y"); ?>" size="10px" />
                     <!--SUCURSAL--> <input id="sucursal" style="text-transform:uppercase" name="sucursal" type="text" class="input sucursal" placeholder="Sucursal"  /><!--ENDEND USERNAME-->                       

@@ -5,12 +5,18 @@ function eCalculaTotales() {
         if ($(this).find('td').eq(18).text() === 'Pendiente') {
             $(this).css('color', 'purple');
             //$(this).css('color', 'DarkKhaki');
-            sumape += parseFloat($(this).find('td').eq(9).text() || 0, 10);};
+            sumape += parseFloat($(this).find('td').eq(9).text() || 0, 10);
+        }
+        ;
         if ($(this).find('td').eq(18).text() !== 'Pendiente') {
             sumapa += parseFloat($(this).find('td').eq(9).text() || 0, 10);
-            $(this).css('color', 'blue');};
+            $(this).css('color', 'blue');
+        }
+        ;
         if ($(this).find('td').eq(23).text() === 'S') {
-            $(this).css('color', 'tomato');};
+            $(this).css('color', 'tomato');
+        }
+        ;
     });
 //alert(suma);
     $("#etotal_i").text(sumapa.toFixed(2));
@@ -216,6 +222,50 @@ function MuestraEntregados(fecha_busqueda, opt) {
     return false;
 }
 
+function eRecuperaFila(eidfila) {
+    eControlesCancelar();
+    $("#formulario").css("display", "none");
+    var idfilar = $('#sele_fe').val();
+    var elTableRow = document.getElementById(eidfila);
+    var elTableRow1 = document.getElementById(idfilar);
+    var color = elTableRow.style.backgroundColor;
+    elTableRow.style.backgroundColor = (elTableRow.style.backgroundColor === "LightSkyBlue") ? color : 'LightSkyBlue';
+    if (idfilar !== eidfila) {
+        elTableRow1.style.backgroundColor = (elTableRow.style.backgroundColor === color) ? 'LightSkyBlue' : color;
+    }
+    var elTableCells = elTableRow.getElementsByTagName("td");
+
+    document.getElementById("pdffecha").value = elTableCells[3].innerHTML;
+    document.getElementById("md_dnib").value = elTableCells[4].innerHTML;
+    document.getElementById("enombresb").value = elTableCells[5].innerHTML;
+    document.getElementById("md_dnir").value = elTableCells[6].innerHTML;
+    document.getElementById("enombresr").value = elTableCells[7].innerHTML;
+    document.getElementById("eimporte_r").value = elTableCells[9].innerHTML;
+    document.getElementById("ecargo_r").value = elTableCells[10].innerHTML;
+    document.getElementById("md_igv").value = elTableCells[11].innerHTML;
+    document.getElementById("md_itf").value = elTableCells[12].innerHTML;
+    document.getElementById("md_usuaregistra").value = elTableCells[17].innerHTML;
+    document.getElementById("md_fechaentrega").value = elTableCells[18].innerHTML;
+    document.getElementById("md_usuaentrega").value = elTableCells[19].innerHTML;
+    document.getElementById("eobserva").value = elTableCells[20].innerHTML;
+    document.getElementById("ciudaddestino").value = elTableCells[21].innerHTML;
+
+    document.getElementById("codgirosucursal").value = elTableCells[2].innerHTML;
+    $("#codgirosucu_img").val(elTableCells[2].innerHTML);
+    var sucursalo = elTableCells[2].innerHTML;
+    document.getElementById("codsucursalo").value = sucursalo.substring(0, 3);
+    $("#usuaentrega").val(elTableCells[19].innerHTML); // para verificar si fue pagado (originalmente = '---')
+    $("#anulado").val(elTableCells[24].innerHTML);
+    $("#correlativo").val(elTableCells[25].innerHTML);
+    $("#correlativo_img").val(elTableCells[25].innerHTML);
+    $("#sele_fe").val(eidfila);
+    document.getElementById("txtnrooperacion").disabled = false;
+    document.getElementById("boton_pagar").disabled = false;
+    document.getElementById("imprime_entregados").disabled = false;
+    console.log($("#correlativo_img").val());
+    console.log($("#anulado").val());
+}
+
 function CreaTablaEntregados(jsonrecibe) {
     var voucher;
     var html;
@@ -233,26 +283,26 @@ function CreaTablaEntregados(jsonrecibe) {
         html += "<td>" + jsonrecibe[contador].fechahora_registro + "</td>";
         html += "<td >" + jsonrecibe[contador].dni_rucb + "</td>";
         html += "<td>" + jsonrecibe[contador].beneficiario + "</td>";
-        /* 5 */ html += "<td >" + jsonrecibe[contador].dni_ruc + "</td>";
+        /* 6 */ html += "<td >" + jsonrecibe[contador].dni_ruc + "</td>";
         html += "<td>" + jsonrecibe[contador].remitente + "</td>";
         html += "<td class='eoculto'>" + jsonrecibe[contador].cod_sucursald + "</td>";
         html += "<td align='right'>" + jsonrecibe[contador].importe_giro + "</td>";
         html += "<td class='eoculto' align='right'>" + jsonrecibe[contador].cargo_giro + "</td>";
-        /*10 */ html += "<td class='eoculto' align='right' class='oculto'>" + jsonrecibe[contador].igv_giro + "</td>";
+        /*11 */ html += "<td class='eoculto' align='right' class='oculto'>" + jsonrecibe[contador].igv_giro + "</td>";
         html += "<td class='eoculto' align='right' class='oculto'>" + jsonrecibe[contador].itf_giro + "</td>";
         html += "<td class='eoculto' align='right'>" + jsonrecibe[contador].otros + "</td>";
         html += "<td class='eoculto' align='right'>" + jsonrecibe[contador].total + "</td>";
         html += "<td>" + jsonrecibe[contador].nro_cuenta + "</td>";
-        /*15 */ html += "<td>" + jsonrecibe[contador].nro_operacion + "</td>";
+        /*16 */ html += "<td>" + jsonrecibe[contador].nro_operacion + "</td>";
         html += "<td>" + jsonrecibe[contador].usuario_registra + "</td>";
         html += "<td>" + jsonrecibe[contador].fechahora_entrega + "</td>";
         html += "<td >" + jsonrecibe[contador].usuario_entrega + "</td>";
         html += "<td>" + jsonrecibe[contador].observagiro + "</td>";
-        /*20 */ html += "<td class='eoculto'>" + jsonrecibe[contador].ciudad_destino + "</td>";
+        /*21 */ html += "<td class='eoculto'>" + jsonrecibe[contador].ciudad_destino + "</td>";
         html += "<td class='eoculto'>" + jsonrecibe[contador].nom_sucursal + "</td>";
         html += "<td>" + jsonrecibe[contador].datapago + "</td>";
         html += "<td class='eoculto'>" + jsonrecibe[contador].anulado + "</td>";
-        html += "<td class='eoculto'>" + jsonrecibe[contador].correlativo + "</td>";
+        /*25*/ html += "<td class='eoculto'>" + jsonrecibe[contador].correlativo + "</td>";
         html += "</tr>";
     }
 
@@ -402,7 +452,7 @@ function eControlesCancelar() {
 }
 
 function fnImprimeEntregados(accion) {
-    var confirma_impresion=VerificaImprimir();            
+    var confirma_impresion = VerificaImprimir();
     switch (accion) {
         case "manualmente":
             if (confirma_impresion === "SI") {
@@ -419,56 +469,6 @@ function fnImprimeEntregados(accion) {
                     '&pdfnick=' + $('#nick').val(), '_blank');
     }
     return false;
-}
-
-function eRecuperaFila(eidfila) {
-    eControlesCancelar();
-    $("#formulario").css("display", "none");
-    var idfilar = $('#sele_fe').val();
-    var elTableRow = document.getElementById(eidfila);
-    var elTableRow1 = document.getElementById(idfilar);
-    var color = elTableRow.style.backgroundColor;
-    elTableRow.style.backgroundColor = (elTableRow.style.backgroundColor === "LightSkyBlue") ? color : 'LightSkyBlue';
-    if (idfilar !== eidfila) {
-        elTableRow1.style.backgroundColor = (elTableRow.style.backgroundColor === color) ? 'LightSkyBlue' : color;
-    }
-    var elTableCells = elTableRow.getElementsByTagName("td");
-
-    document.getElementById("pdffecha").value = elTableCells[2].innerHTML;
-    document.getElementById("md_dnib").value = elTableCells[3].innerHTML;
-    document.getElementById("enombresb").value = elTableCells[4].innerHTML;
-    document.getElementById("md_dnir").value = elTableCells[5].innerHTML;
-    document.getElementById("enombresr").value = elTableCells[6].innerHTML;
-    document.getElementById("eimporte_r").value = elTableCells[8].innerHTML;
-    document.getElementById("ecargo_r").value = elTableCells[9].innerHTML;
-    document.getElementById("md_igv").value = elTableCells[10].innerHTML;
-    document.getElementById("md_itf").value = elTableCells[11].innerHTML;
-    document.getElementById("md_usuaregistra").value = elTableCells[16].innerHTML;
-    document.getElementById("md_fechaentrega").value = elTableCells[17].innerHTML;
-    document.getElementById("md_usuaentrega").value = elTableCells[18].innerHTML;
-    document.getElementById("eobserva").value = elTableCells[19].innerHTML;
-    document.getElementById("ciudaddestino").value = elTableCells[20].innerHTML;
-
-//    var correla = elTableCells[1].innerHTML;
-//    document.getElementById("correlativo").value = correla.substring(3, 8);
-    document.getElementById("codgirosucursal").value = elTableCells[1].innerHTML;
-    $("#codgirosucu_img").val(elTableCells[1].innerHTML);
-    var sucursalo = elTableCells[1].innerHTML;
-    document.getElementById("codsucursalo").value = sucursalo.substring(0, 3);
-    $("#usuaentrega").val(elTableCells[18].innerHTML); // para verificar si fue pagado (originalmente = '---')
-    $("#anulado").val(elTableCells[23].innerHTML);
-    $("#correlativo").val(elTableCells[24].innerHTML);
-    $("#correlativo_img").val(elTableCells[24].innerHTML);
-    $("#sele_fe").val(eidfila);
-//    $("#origen").val(elTableCells[21].innerHTML);
-    document.getElementById("txtnrooperacion").disabled = false;
-
-    document.getElementById("boton_pagar").disabled = false;
-//  document.getElementById("eimprimir_r").disabled = false;
-    document.getElementById("imprime_entregados").disabled = false;
-    console.log($("#correlativo_img").val());
-    console.log($("#anulado").val());
-    
 }
 
 function fnCreaTablaMasDatos() {
@@ -796,7 +796,40 @@ $(document).ready(function () {
             $("#TEntregados tbody>tr").show();
         }
     });
-
+    $("#busca_da").keyup(function () {
+        // When value of the input is not blank
+        if ($(this).val() !== "")
+        {// Show only matching TR, hide rest of them
+            $("#TSaldoDisponibleAgente tbody>tr").hide();
+            $("#TSaldoDisponibleAgente td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+        } else
+        {   // When there is no input or clean again, show everything back
+            $("#TSaldoDisponibleAgente tbody>tr").show();
+        }
+    });
+    $("#busca_sa").keyup(function () {
+        // When value of the input is not blank
+        if ($(this).val() !== "")
+        {// Show only matching TR, hide rest of them
+            $("#TSaldoDisponible tbody>tr").hide();
+            $("#TSaldoDisponible td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+        } else
+        {   // When there is no input or clean again, show everything back
+            $("#TSaldoDisponible tbody>tr").show();
+        }
+    });
+    $("#busca_fs").keyup(function () {
+        // When value of the input is not blank
+        if ($(this).val() !== "")
+        {// Show only matching TR, hide rest of them
+            $("#TFlujoSucursales tbody>tr").hide();
+            $("#TFlujoSucursales td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+        } else
+        {   // When there is no input or clean again, show everything back
+            $("#TFlujoSucursales tbody>tr").show();
+        }
+    });
+    
 //////////////// DIALOGOS ////////////////
 
     $("#dialogo_asigcuenta").dialog({autoOpen: false, resizable: true,
@@ -910,14 +943,18 @@ $(document).ready(function () {
             fnMuestraSucursales();
         },
         buttons: {
-            'Aceptar': function () {if ($("#txt_motivo").val().length > 2) {
+            'Aceptar': function () {
+                if ($("#txt_motivo").val().length > 2) {
                     fnPagaEfectivoSucursal();
                     $(this).dialog("close");
 
                 } else {
                     jAlert("Ingrese motivo de la transaccion, Verifique...", "Giros - Transferencias");
-                }},
-            'Cancelar': function () {$(this).dialog("close");}
+                }
+            },
+            'Cancelar': function () {
+                $(this).dialog("close");
+            }
         }
     });
 
@@ -999,28 +1036,48 @@ $(document).ready(function () {
     });
 
     $("#diag_SaldoDisponible").dialog({autoOpen: false, resizable: true,
-        modal: true, height: 450, width: 500, show: {effect: "blind", duration: 500}, hide: {effect: "fade", duration: 500},
+        modal: true, height: 450, width: 550, show: {effect: "blind", duration: 500}, hide: {effect: "fade", duration: 500},
         open: function (event, ui) {
             var ntitulo = "Saldo Disponible";
             $("span.ui-dialog-title").css("font-size", 10);
             $("span.ui-dialog-title").text(ntitulo);
             fnMuestraSaldoDisponible();
         }
-//        buttons: {'Salir': function () {
-//                $(this).dialog("close");
-//            }},
-//        close: function (event, ui) {
-//            
-//        }
+        //        buttons: {'Salir': function () {
+        //                $(this).dialog("close");
+        //            }},
+        //        close: function (event, ui) {
+        //            
+        //        }
     });
-    
+
+    $("#diag_SaldoDisponibleAgente").dialog({autoOpen: false, resizable: true,
+        modal: true, height: 450, width: 500, show: {effect: "blind", duration: 500}, hide: {effect: "fade", duration: 500},
+        open: function (event, ui) {
+            var ntitulo = "Saldo Disponible Agente";
+            $("span.ui-dialog-title").css("font-size", 10);
+            $("span.ui-dialog-title").text(ntitulo);
+            fnMuestraSaldoDisponibleAgente();
+        }
+    });
+
+    $("#diag_FlujoSucursales").dialog({autoOpen: false, resizable: true,
+        modal: true, height: 550, width: 500, show: {effect: "blind", duration: 500}, hide: {effect: "fade", duration: 500},
+        open: function (event, ui) {
+            var ntitulo = "Flujo Neto Efectivo Sucursales";
+            $("span.ui-dialog-title").css("font-size", 10);
+            $("span.ui-dialog-title").text(ntitulo);
+            fnMuestraFlujoSucursales();
+        }
+    });
+
     $("#dialogo_CargaImagen").dialog({autoOpen: false, resizable: true,
         modal: true, height: 500, width: 400, show: {effect: "blind", duration: 500}, hide: {effect: "fade", duration: 500},
         open: function (event, ui) {
             var ntitulo = "Cargar Voucher";
             $("span.ui-dialog-title").css("font-size", 10);
             $("span.ui-dialog-title").text(ntitulo);
-            
+
         }
 //        buttons: {'Salir': function () {(this).dialog("close");},
 //                  
@@ -1030,7 +1087,7 @@ $(document).ready(function () {
 //            
 //        }
     });
-    
+
     ////////////////////////////////////////////////////////////////////////
     // ============================= CLICK =============================== 
     $("#boton_pagar").click(function () {
@@ -1265,7 +1322,15 @@ $(document).ready(function () {
     $("#disponibilidad").click(function () {
         $("#diag_SaldoDisponible").dialog("open");
     });
-
+    
+    $("#DisponibilidadAgente").click(function () {
+        $("#diag_SaldoDisponibleAgente").dialog("open");
+    });
+    
+    $("#FlujoSucursales").click(function () {
+        $("#diag_FlujoSucursales").dialog("open");
+    });
+    
     $("#btn_eguardar").click(function () {
         var nulo = "N";
         var existe = "N";
@@ -1356,23 +1421,25 @@ $(document).ready(function () {
     });
 
     MuestraEntregados($('#efecha_r').val(), $('#optbuscar').val());
-    
+
     $('#carga_imagen').click(function () {
-        if ($("#correlativo_img").val().trim() !== ''){
-            if($("#md_fechaentrega").val() !== 'Pendiente' ){
+        if ($("#correlativo_img").val().trim() !== '') {
+            if ($("#md_fechaentrega").val() !== 'Pendiente') {
                 $("#dialogo_CargaImagen").dialog("open");
-            } else {jAlert ("Transferencia esta pendiente, Verifique...", "Transferecnias")}
-        } else {           
-            jAlert ("Seleccione una Transferencia...", "Transferecnias")
-        }        
-    });
-    
-     $('#btn_guarda_voucher').click(function () {
-         if ($("#descripcion_img").val().trim() !== ''){            
-            uploadObj.startUpload();       
+            } else {
+                jAlert("Transferencia esta pendiente, Verifique...", "Transferecnias")
+            }
         } else {
-            jAlert ("Falta descripcion... ", "Transferecnias")
-        }        
+            jAlert("Seleccione una Transferencia...", "Transferecnias")
+        }
+    });
+
+    $('#btn_guarda_voucher').click(function () {
+        if ($("#descripcion_img").val().trim() !== '') {
+            uploadObj.startUpload();
+        } else {
+            jAlert("Falta descripcion... ", "Transferecnias")
+        }
     });
 
     var uploadObj = $("#fileuploader").uploadFile({
@@ -1385,7 +1452,7 @@ $(document).ready(function () {
         showProgress: true, //mostrar barra de progreso
         showPreview: true, //mostrar previsualización de las imagenes a cargar        
         previewHeight: "150px",
-        previewWidth:  "100px",
+        previewWidth: "100px",
         autoSubmit: false, //deshabilitar el envio del archivo automaticamente, para poder ser enviado se utiliza la función startUpload()
         showStatusAfterSuccess: true, //mostrar estado despues de haber cargado correctamente las imagenes
         //maxFileCount: 1, //número máximo de archivos a subir
@@ -1401,30 +1468,31 @@ $(document).ready(function () {
         statusBarWidth: "300px", //defino el acho de la barra de estado.
         //Datos del formulario dinámico, estos son los datos que se envian además de las imagenes, se recuperan con
         returnType: "json",
-        maxFileSize:1024 * 5120,
+        maxFileSize: 1024 * 5120,
         //maxFileCount:5,        
         showDelete: true,
         deleteCallback: function (data, pd) {
             for (var i = 0; i < data.length; i++) {
                 $.post("php/delete.php", {op: "delete", name: data[i]},
-                    function (resp, textStatus, jqXHR) {
-                        //Show Message  
-                        console.log("File Deleted");
-                        jAlert("Archivo Eliminado...","Transferencia de Archivos")
-                    });
+                        function (resp, textStatus, jqXHR) {
+                            //Show Message  
+                            console.log("File Deleted");
+                            jAlert("Archivo Eliminado...", "Transferencia de Archivos")
+                        });
             }
             pd.statusbar.hide();
         },
-        onSuccess:function(files,data,xhr,pd){
-            fnInsertaVoucher();            
+        onSuccess: function (files, data, xhr, pd) {
+            fnInsertaVoucher();
             pd.statusbar.hide();
         },
-        onError: function(files,status,errMsg,pd){
+        onError: function (files, status, errMsg, pd) {
             //$("#eventsmessage").html($("#eventsmessage").html()+"<br/>Error for: "+JSON.stringify(files));
-            jAlert("Error al cargar archivos, Verifique...","Transferencia de Archivos")
+            jAlert("Error al cargar archivos, Verifique...", "Transferencia de Archivos")
         }
     });
-
+    
+    console.log($("#mi_token").val());
 
 });/* document*/
 
@@ -2182,7 +2250,7 @@ function fnMuestraSaldoDisponible() {
         data: {opt: 'DISPONIBILIDAD', fecha: $('#efecha_r').val(), idempresa: $('#codsucursal').val()},
         url: "controles/ManteRecibidos.php",
         beforeSend: function (objeto) {
-            $('#carga').css('display', 'block');
+            $('#carga_sa').css('display', 'block');
         },
         success: CreaTablaSaldoDisponible
     });
@@ -2204,25 +2272,116 @@ function CreaTablaSaldoDisponible(json) {
         html += "<td align='right'>" + json[x].disponible + "</td>";
         html += "</tr>";
     }
-    $('#carga').css('display', 'none');
+    $('#carga_sa').css('display', 'none');
     $("#body_SaldoDisponible").html(html);
-//  fnTotalesSaldoDisponible();
-
+    fnTotalesDisponibleAsociado();
     $('#TSaldoDisponible').dataTable({
         "sScrollY": 300, "bPaginate": false,
         "bLengthChange": false, "bFilter": false, "ordering": false,
         "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
     });
+}
 
+function fnMuestraSaldoDisponibleAgente() {
+    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
+        data: {opcion: 'MOSTRAR', fechai: $('#efecha_r').val(), fechaf: $('#efecha_r').val(), idempresa: $('#codsucursal').val()},
+        url: "controles/ManteGerencial.php",
+        beforeSend: function (objeto) {
+            $('#carga_da').css('display', 'block');
+        },
+        success: CreaTablaSaldoDisponibleAgente
+    });
+    return false;
+}
+
+function CreaTablaSaldoDisponibleAgente(json) {
+    var html;
+    var i = 0;
+    for (var x = 0; x < json.length; x++) {
+        i = x + 1;
+        html += "<tr id='SDA[" + x + "]' class='dato' >";
+        html += "<td>" + json[x].iniciales + "</td>";
+        html += "<td>" + json[x].nrocuenta + "</td>";
+        html += "<td align='right'>" + json[x].saldo_cuenta + "</td>";
+        html += "<td align='right'>" + json[x].saldo_efectivo + "</td>";
+        html += "</tr>";
+    }
+    $('#carga_da').css('display', 'none');
+    $("#body_SaldoDisponibleAgente").html(html);
+    fnTotalesDisponibleAgente();
+    $('#TSaldoDisponibleAgente').dataTable({
+        "sScrollY": 300, "bPaginate": false,
+        "bLengthChange": false, "bFilter": false, "ordering": false,
+        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+    });
+}
+
+function fnMuestraFlujoSucursales() {
+    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
+        data: {opt: 'FLUJOSUCURSALES', fechai: $('#efecha_r').val(), fechaf: $('#efecha_r').val(), idempresa: $('#codsucursal').val()},
+        url: "controles/ManteRecibidos.php",
+        beforeSend: function (objeto) {
+            $('#carga_fs').css('display', 'block');
+            fnIngresosxSucursal();
+            fnEgresosxSucursal()
+        },
+        success: CreaTablaFlujoSucursales
+    });
+    return false;
+}
+
+function fnIngresosxSucursal() {
+    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
+        data: {opt: 'INGRESOSXSUCURSAL', fechai: $('#efecha_r').val(), fechaf: $('#efecha_r').val(), idempresa: $('#codsucursal').val()},
+        url: "controles/ManteRecibidos.php",
+        beforeSend: function (objeto) {            
+        }        
+    });
+    return false;
+}
+
+function fnEgresosxSucursal() {
+    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
+        data: {opt: 'EGRESOSXSUCURSAL', fechai: $('#efecha_r').val(), fechaf: $('#efecha_r').val(), idempresa: $('#codsucursal').val()},
+        url: "controles/ManteRecibidos.php",
+        beforeSend: function (objeto) {            
+        }        
+    });
+    return false;
+}
+
+function CreaTablaFlujoSucursales(json) {
+    var html;
+    var i = 0;
+    for (var x = 0; x < json.length; x++) {
+        i = x + 1;
+        html += "<tr id='FS[" + x + "]' class='dato' >";
+        html += "<td>" + json[x].fecha + "</td>";
+        html += "<td>" + json[x].codsucu + "</td>";
+        html += "<td align='right'>" + json[x].tingresos + "</td>";
+        html += "<td align='right'>" + json[x].tsalidas + "</td>";
+        html += "<td align='right'>" + json[x].saldofinal + "</td>";
+        html += "<td align='right'>" + json[x].pendientes + "</td>";
+        html += "<td align='right'>" + json[x].efectivo + "</td>";
+        html += "</tr>";
+    }
+    $('#carga_fs').css('display', 'none');
+    $("#body_TFlujoSucursales").html(html);
+    fnTotalesFlujoSucursales();
+    $('#TFlujoSucursales').dataTable({
+        "sScrollY": 250, "bPaginate": false,
+        "bLengthChange": false, "bFilter": false, "ordering": false,
+        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+    });
 }
 
 function fnInsertaVoucher() {
     $.ajax({async: true, type: "POST", dataType: "json", cache: false,
-        data: {opt:'VOUCHER',correlativo:$("#correlativo_img").val(),codgirosucu:$('#codgirosucu_img').val(),fechai:$('#efechahoy').val(),fechaf:$('#efechahoy').val(),
-        usuariocarga:$('#nick').val(),descripcion:$('#descripcion_img').val(),usuarioimprime:$('#nick').val(),op:'I'},
+        data: {opt: 'VOUCHER', correlativo: $("#correlativo_img").val(), codgirosucu: $('#codgirosucu_img').val(), fechai: $('#efechahoy').val(), fechaf: $('#efechahoy').val(),
+            usuariocarga: $('#nick').val(), descripcion: $('#descripcion_img').val(), usuarioimprime: $('#nick').val(), op: 'I'},
         url: "controles/ManteRecibidos.php",
-        success: function(){
-            jAlert("Archivo Cargado, Verifique...","Transferencia de Archivos");
+        success: function () {
+            jAlert("Archivo Cargado, Verifique...", "Transferencia de Archivos");
             $("#correlativo_img").val("");
             $("#codgirosucu_img").val("");
             $("#descripcion_img").val("");
@@ -2232,25 +2391,102 @@ function fnInsertaVoucher() {
     return false;
 }
 
-function VerificaImprimir(){
-    var usuario=$("#tipousuario").val();
-    var fecha_elegida = $('#efecha_r').val().replace('-','/');
-    var fecha_php = $('#efechahoy').val().replace('-','/');    
+function VerificaImprimir() {
+    var usuario = $("#tipousuario").val();
+    var fecha_elegida = $('#efecha_r').val().replace('-', '/');
+    var fecha_php = $('#efechahoy').val().replace('-', '/');
     var rpta;
-    if ( fecha_elegida < fecha_php ) {
-        if ( $("#anulado").val() === 'N'){
-            if (usuario === 'ADMIN')    { rpta='SI';}
-            if (usuario === 'OPERADOR') { rpta='NO';}
-            
-        } else { rpta='NO';}
+    if (fecha_elegida < fecha_php) {
+        if ($("#anulado").val() === 'N') {
+            if (usuario === 'ADMIN') {
+                rpta = 'SI';
+            }
+            if (usuario === 'OPERADOR') {
+                rpta = 'NO';
+            }
+
+        } else {
+            rpta = 'NO';
+        }
     }
-    if ( fecha_elegida === fecha_php ) {
-        if ( $("#anulado").val() === 'N'){
-            if (usuario === 'ADMIN')    { rpta='SI';}
-            if (usuario === 'OPERADOR') { rpta='SI';}
-            
-        } else { rpta='NO';}    
-    }    
+    if (fecha_elegida === fecha_php) {
+        if ($("#anulado").val() === 'N') {
+            if (usuario === 'ADMIN') {
+                rpta = 'SI';
+            }
+            if (usuario === 'OPERADOR') {
+                rpta = 'SI';
+            }
+
+        } else {
+            rpta = 'NO';
+        }
+    }
     return rpta;
-            
+
+}
+
+function fnTotalesDisponibleAgente() {
+    var suma_cuenta = 0;
+    var suma_efectivo = 0;
+    $('#TSaldoDisponibleAgente tr.dato').each(function () {
+        suma_cuenta += parseFloat($(this).find('td').eq(3).text() || 0, 10); //numero de la celda 12*/
+        suma_efectivo += parseFloat($(this).find('td').eq(4).text() || 0, 10);
+    });
+    $("#t_saldo_cuenta").text(suma_cuenta.toFixed(2));
+    $("#t_saldo_efectivo").text(suma_efectivo.toFixed(2));
+}
+
+function fnTotalesDisponibleAsociado() {
+    var sum_saldo_cta = 0;
+    var sum_disponible = 0;
+    var sum_movs = 0;
+    $('#TSaldoDisponible tr.dato').each(function () {
+        //filas con clase 'dato', especifica una clase, asi no tomas el nombre de las columnas  
+        sum_movs += parseFloat($(this).find('td').eq(3).text() || 0, 10); //numero de la celda 12*/
+        sum_saldo_cta += parseFloat($(this).find('td').eq(4).text() || 0, 10);
+        sum_disponible += parseFloat($(this).find('td').eq(5).text() || 0, 10);
+    });
+    $("#t_movs").text(sum_movs.toFixed(2));
+    $("#t_saldo_cta").text(sum_saldo_cta.toFixed(2));
+    $("#t_disponible").text(sum_disponible.toFixed(2));
+}
+
+function fnTotalesFlujoSucursales() {
+    var sum_ingresos = 0;
+    var sum_egresos = 0;
+    var sum_saldofinal = 0;
+    var sum_pendiente = 0;
+    var sum_efectivoneto = 0;
+    
+    $('#TFlujoSucursales tr.dato').each(function () {
+        //filas con clase 'dato', especifica una clase, asi no tomas el nombre de las columnas  
+        sum_ingresos += parseFloat($(this).find('td').eq(2).text() || 0, 10); //numero de la celda 12*/
+        sum_egresos += parseFloat($(this).find('td').eq(3).text() || 0, 10);
+        sum_saldofinal += parseFloat($(this).find('td').eq(4).text() || 0, 10);
+        sum_pendiente += parseFloat($(this).find('td').eq(5).text() || 0, 10);
+        sum_efectivoneto += parseFloat($(this).find('td').eq(6).text() || 0, 10);
+    });
+    $("#t_ingresos").text(sum_ingresos.toFixed(2));
+    $("#t_egresos").text(sum_egresos.toFixed(2));
+    $("#t_saldofinal").text(sum_saldofinal.toFixed(2));
+    $("#t_pendiente").text(sum_pendiente.toFixed(2));
+    $("#t_efectivoneto").text(sum_efectivoneto.toFixed(2));
+}
+
+function fnTablaResumen() {
+    
+    var html;
+    html += "<tr>";
+    html += "<td>" + $('#md_dnib').val() + "</td>";
+    html += "<td>" + $('#md_dnir').val() + "</td>";
+    html += "<td>" + $('#md_igv').val() + "</td>";
+    html += "<td>" + $('#md_itf').val() + "</td>";
+    html += "<td>" + $('#md_usuaregistra').val() + "</td>";
+    html += "<td>" + $('#md_fechaentrega').val() + "</td>";
+    html += "<td>" + $('#md_usuaentrega').val() + "</td>";
+    html += "<td>" + $('#ciudaddestino').val() + "</td>";
+    html += "<td>" + $('#origen').val() + "</td>";
+    html += "</tr>";
+    $("#tbody_masdatose").html(html);
 }

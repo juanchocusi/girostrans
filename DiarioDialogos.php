@@ -134,8 +134,7 @@
                 <tr>                            
                     <th>NroCuenta</th>
                     <th>Iniciales</th>
-                    <th>Nombre Banco</th>
-                    
+                    <th>Nombre Banco</th>                    
                 </tr>
             </thead>                                                   
             <tbody id="tbody_cuentaagente">

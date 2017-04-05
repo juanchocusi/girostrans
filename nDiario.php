@@ -11,7 +11,7 @@ if (!isset($_SESSION["nick"])) {
     exit;
 }
 $idempresa = $_SESSION['codsucursal'];
-$sql_agt = "select c.nrocuenta,b.iniciales,b.desc_banco from bancos b  JOIN cuentas c on b.idbanco=c.idbanco where b.grupo='A' and b.anulado='N' order by 2;";
+$sql_agt = "select c.nrocuenta,b.iniciales,b.desc_banco from bancos b  JOIN cuentas c on b.idbanco=c.idbanco where b.grupo='A' and b.anulado='N' and c.idempresa=mid('".$idempresa."',1,1) order by 2;";
 $resultado = $mysqli->query($sql_agt);
 $agt = '<option value="0">Elige Agente...</option>';
 while ($mifila = $resultado->fetch_array()) {

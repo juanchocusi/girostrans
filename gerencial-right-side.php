@@ -105,6 +105,7 @@
                             <th>Otros Ing</th>
                             <th>Comision Recargas</th>                            
 
+                            <th>Retiro Agte-Asoc</th>
                             <th>Traslado Efe Agte>>Sucu</th>
                             <th>Traslado Efe Sucu>>Sucu</th>                            
                             <th>Total Ingresos</th>                            
@@ -126,6 +127,7 @@
                             <th id="ti_comi_recargas"></th>                            
                             <th id="ti_otros_ing"></th>
 
+                            <th id="ti_ing_efec_cta_agte"></th>
                             <th id="ti_traslado_efe_age_sucu"></th>
                             <th id="ti_traslado_efe_sucu_sucu"></th>                            
                             <th id="ti_ingresos"></th>
@@ -159,14 +161,15 @@
                             <th>Aliment</th>                            
                             <th>Viaticos</th>
                             <th>Honors</th>
-                            <th>Otros</th>
+                            <th>Imprevistos</th>
                             <th>Impuestos</th>
                             <th>Alquiler</th>
 
                             <th>Entregs</th>
                             <th>Tras. Cta Agte</th>
                             <th>Tras. Efec Sucu</th>
-                            <th>Tras. Efec Asoc</th>
+                            <th>Tras. Efec Agte</th>
+                            <th>Otros</th>
                             <th>Total</th>
                             <th>Total Gastos</th>
                         </tr>
@@ -248,7 +251,7 @@
         </div>
     </div>    
     <!--////////////////////////////// RESUMEN EFECTIVO /////////////////////////////////////-->    
-    <div class="row">
+<!--    <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6">            
             <h4>RESUMEN TOTAL DE EFECTIVO</h4>
             <div id="" class="table-responsive ">                
@@ -271,7 +274,7 @@
             </div>
         </div>
     </div>    
-<!--////////////////////////////////// RESUMEN TOTAL DE UTILIDAD ////////////////////////////-->            
+////////////////////////////////// RESUMEN TOTAL DE UTILIDAD ////////////////////////////            
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6">            
             <h4>RESUMEN TOTAL DE UTILIDAD</h4>
@@ -284,7 +287,7 @@
                             <th>TOTAL UTILIDAD AGENTE</th>
                             <th>TOTAL UTILIDAD ASOCIADO</th>
                             <th>TOTAL UTILIDAD SUCURSALES</th>
-                            <th>TOTAL UTILIDAD</th>                            
+                            <th>TOTAL UTILIDAD</th>
                         </tr>
                     </thead>                
                     <tbody id="body_ResumenUtilidad" >
@@ -293,7 +296,7 @@
             </div>
         </div>
     </div>    
-<!--///////////////////////////////// RESUMEN GASTOS ////////////////////////////////////////-->    
+///////////////////////////////// RESUMEN GASTOS ////////////////////////////////////////    
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6">            
             <h4>RESUMEN TOTAL DE EFECTIVO</h4>
@@ -315,24 +318,18 @@
             </div>
         </div>
     </div>
-<!--///////////////////////////////// INGRESO PASIVO ////////////////////////////////////////-->    
+///////////////////////////////// INGRESO PASIVO ////////////////////////////////////////    
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6">            
             <h4>RESUMEN TOTAL DE EFECTIVO</h4>
             <div id="" class="table-responsive ">                
                 <table id="TResumePasivo" class=" table-condensed table-bordered ">
-                    <thead>
-                        <tr>
-                            <th>Desde</th>
-                            <th>Hasta</th>
-                            <th>Ingreso Pasivo</th>                                        
-                        </tr>
-                    </thead>                
-                    <tbody id="body_ResumenPasivo" >
-                    </tbody>
+                    <thead id="body_ResumenPasivo">
+                        
+                    </thead>
                 </table>
             </div>
         </div>
-    </div>    
+    </div>    -->
     
 </section>

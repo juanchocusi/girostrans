@@ -7,19 +7,6 @@ table {font-size: 11px;}
 #fechai {width: 70px;font-size: 10px}
 #fechaf {width: 70px;font-size: 10px}
 
-#t_ci {text-align: right;}
-#tsaldo_cuenta{text-align: right;}
-#tsaldo_efectivo{text-align: right;}
-#total_ci{text-align: right;}
-#tsaldo_asociado{text-align: right;}
-#tvarios{text-align: right;}
-#tletras{text-align: right;}
-#totros{text-align: right;}
-#tctasxp{text-align: right;}
-#tctasxc{text-align: right;}
-#tpendientes{text-align: right;}
-#total_1{text-align: right;font-weight: bold}
-
 #t_itf{text-align: right; font-weight: bold}
 #t_comi_agente{text-align: right; font-weight: bold}
 #t_otros_gastos{text-align: right; font-weight: bold}
@@ -41,13 +28,13 @@ table {font-size: 11px;}
 #ttraslado_efectivo{text-align: right; font-weight: bold}
 #ttotales_s{text-align: right; font-weight: bold}
 
-#ti_saldoi{text-align: right; font-weight: bold}
+/*#ti_saldoi{text-align: right; font-weight: bold}
 #ti_retiro_banco{text-align: right; font-weight: bold}
 #ti_transf_recibidas{text-align: right; font-weight: bold}
 #ti_ctasxcobras{text-align: right; font-weight: bold}
 #ti_otros_ing{text-align: right; font-weight: bold}
 #ti_traslado_efectivo{text-align: right; font-weight: bold}
-#ti_totales_i{text-align: right; font-weight: bold}
+#ti_totales_i{text-align: right; font-weight: bold}*/
 
 #tsaldo_cuenta{text-align: right; font-weight: bold}
 #t_ogastos{text-align: right; font-weight: bold}
@@ -68,5 +55,76 @@ table {font-size: 11px;}
 #mensaje_blockui{ font-weight: bold; font-size: 18px;}
 #mensajito{ font-weight: bold; font-size: 18px;}
 
+    #tpendientes{text-align: right; font-weight: bold}
+    #tgiro_banco{text-align: right; font-weight: bold}
+    #tcomi_giros{text-align: right; font-weight: bold}
+    
+    #tcomi_retiros{text-align: right; font-weight: bold}
+    #ttransporte{text-align: right; font-weight: bold}
+    #tletras{text-align: right; font-weight: bold}
+    #tutil_mante{text-align: right; font-weight: bold}
+    #tservicios{text-align: right; font-weight: bold}
+    
+    #talimentos{text-align: right; font-weight: bold}
+    #tviaticos{text-align: right; font-weight: bold}
+    #thonorarios{text-align: right; font-weight: bold}
+    #totros{text-align: right; font-weight: bold}
+    #timpuestos{text-align: right; font-weight: bold}
+    #talquileres{text-align: right; font-weight: bold}
+    
+    #tentregados{text-align: right; font-weight: bold}
+    #tcta_agte{text-align: right; font-weight: bold}
+    #tefec_sucu{text-align: right; font-weight: bold}
+    #tefec_asociado{text-align: right; font-weight: bold}
+    #ttotal{text-align: right; font-weight: bold}
+    #ttotal_gastos{text-align: right; font-weight: bold}
 
+    #ti_importe{text-align: right; font-weight: bold}
+    #ti_cargo{text-align: right; font-weight: bold}
+    #ti_otros{text-align: right; font-weight: bold}
+    #ti_total_trecibidas{text-align: right; font-weight: bold}
+    #ti_justes{text-align: right; font-weight: bold}
+    #ti_comi_recargas{text-align: right; font-weight: bold}
+    #ti_otros_ing{text-align: right; font-weight: bold}
+    #ti_ing_efec_cta_agte{text-align: right; font-weight: bold}
+    #ti_traslado_efe_age_sucu{text-align: right; font-weight: bold}
+    #ti_traslado_efe_sucu_sucu{text-align: right; font-weight: bold}
+    #ti_ingresos{text-align: right; font-weight: bold}
 
+    #totros_gastos{text-align: right; font-weight: bold}
+    #tcant_giros{text-align: right; font-weight: bold}
+    #ttelegiro{text-align: right; font-weight: bold}
+    #titf{text-align: right; font-weight: bold}
+    #tsaldo{text-align: right; font-weight: bold}
+    #tgastos{text-align: right; font-weight: bold}
+    #tutilidad{text-align: right; font-weight: bold}
+
+    #t_ingresos{text-align: right; font-weight: bold}
+    #t_egresos{text-align: right; font-weight: bold}
+    #t_saldototal{text-align: right; font-weight: bold}
+    #t_pendientes{text-align: right; font-weight: bold}
+    #t_efectivoneto{text-align: right; font-weight: bold}
+    #t_utilxsucursal{text-align: right; font-weight: bold}
+    #t_gastosnetos{text-align: right; font-weight: bold}
+    #t_ingresopasivo{text-align: right; font-weight: bold}
+    
+    /*************** TOTALES *********************/
+    #total_agente{text-align: right; font-weight: bold}
+    #total_cuentas{text-align: right; font-weight: bold}
+    #total_efectivo_neto{text-align: right; font-weight: bold}
+    #total_liquidez{text-align: right; font-weight: bold}
+    #total_trans_pendientes{text-align: right; font-weight: bold}
+    #liquidez_neta{text-align: right; font-weight: bold}
+    
+    #total_util_agente{text-align: right; font-weight: bold}
+    #total_util_asociado{text-align: right; font-weight: bold}
+    #total_util_sucursales{text-align: right; font-weight: bold}
+    #total_utilidad{text-align: right; font-weight: bold}
+    
+    #total_gas_agente{text-align: right; font-weight: bold}
+    #total_gas_asociado{text-align: right; font-weight: bold}
+    #total_gas_sucursales{text-align: right; font-weight: bold}
+    #total_gastos{text-align: right; font-weight: bold}
+    #total_pasivo{text-align: right; font-weight: bold}
+    #total_pasivo_{text-align: right; font-weight: bold}
+    

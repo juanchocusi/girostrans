@@ -1,38 +1,39 @@
 var s_tpendientes = 0;
 var s_tgiro_banco = 0;
 var s_tcomi_giros = 0;
-    
-var    s_tcomi_retiros = 0;
-var    s_ttransporte = 0;
-var    s_tletras = 0;
-var    s_tutil_mante = 0;
-var    s_tservicios = 0;
-    
-var    s_talimentos = 0;
-var    s_tviaticos = 0;
-var    s_thonorarios = 0;
-var    s_totros = 0;
-var    s_timpuestos = 0;
-var    s_talquileres=0;
-    
-var    s_tentregados= 0;
-var    s_tcta_agte= 0;
-var    s_tefec_sucu= 0;
-var    s_tefec_asociado= 0;
-var    s_ttotal= 0;
-var    s_ttotal_gastos= 0;
 
-var    s_ti_saldoi = 0;
-var    s_ti_importe = 0;
-var    s_ti_cargo = 0;
-var    s_ti_otros = 0;
-var    s_ti_total_trecibidas = 0;
-var    s_ti_justes = 0;
-var    s_ti_comi_recargas=0;
-var    s_ti_otros_ing=0;
-var    s_ti_traslado_efe_age_sucu=0;
-var    s_ti_traslado_efe_sucu_sucu=0;
-var    s_ti_ingresos=0;
+var s_tcomi_retiros = 0;
+var s_ttransporte = 0;
+var s_tletras = 0;
+var s_tutil_mante = 0;
+var s_tservicios = 0;
+
+var s_talimentos = 0;
+var s_tviaticos = 0;
+var s_thonorarios = 0;
+var s_totros = 0;
+var s_timpuestos = 0;
+var s_talquileres = 0;
+
+var s_tentregados = 0;
+var s_tcta_agte = 0;
+var s_tefec_sucu = 0;
+var s_tefec_asociado = 0;
+var s_ttotal = 0;
+var s_ttotal_gastos = 0;
+
+var s_ti_saldoi = 0;
+var s_ti_importe = 0;
+var s_ti_cargo = 0;
+var s_ti_otros = 0;
+var s_ti_total_trecibidas = 0;
+var s_ti_justes = 0;
+var s_ti_comi_recargas = 0;
+var s_ti_otros_ing = 0;
+var s_ti_ing_efec_cta_agte = 0;
+var s_ti_traslado_efe_age_sucu = 0;
+var s_ti_traslado_efe_sucu_sucu = 0;
+var s_ti_ingresos = 0;
 var sum_varios = 0;
 var sum_letras = 0;
 var sum_combustibles = 0;
@@ -63,45 +64,45 @@ function fnTotalesRGastosxSucursal() {
     s_tpendientes = 0;
     s_tgiro_banco = 0;
     s_tcomi_giros = 0;
-    
+
     s_tcomi_retiros = 0;
     s_ttransporte = 0;
     s_tletras = 0;
-    s_tutil_mante=0;
+    s_tutil_mante = 0;
     s_tservicios = 0;
-    
+
     s_talimentos = 0;
     s_tviaticos = 0;
     s_thonorarios = 0;
     s_totros = 0;
     s_timpuestos = 0;
-    s_talquileres
-    
-    s_tentregados= 0;
-    s_tcta_agte= 0;
-    s_tefec_sucu= 0;
-    s_tefec_asociado= 0;
-    s_ttotal= 0;
-    s_ttotal_gastos= 0;
-    
-    $('#TGastosxSucursal tr.dato').each(function () { 
+    s_talquileres = 0;
+
+    s_tentregados = 0;
+    s_tcta_agte = 0;
+    s_tefec_sucu = 0;
+    s_tefec_asociado = 0;
+    s_ttotal = 0;
+    s_ttotal_gastos = 0;
+
+    $('#TGastosxSucursal tr.dato').each(function () {
         s_tpendientes += parseFloat($(this).find('td').eq(2).text() || 0, 10);
         s_tgiro_banco += parseFloat($(this).find('td').eq(3).text() || 0, 10);
         s_tcomi_giros += parseFloat($(this).find('td').eq(4).text() || 0, 10);
-        
+
         s_tcomi_retiros += parseFloat($(this).find('td').eq(5).text() || 0, 10);
         s_ttransporte += parseFloat($(this).find('td').eq(6).text() || 0, 10);
         s_tletras += parseFloat($(this).find('td').eq(7).text() || 0, 10);
         s_tutil_mante += parseFloat($(this).find('td').eq(8).text() || 0, 10);
         s_tservicios += parseFloat($(this).find('td').eq(9).text() || 0, 10);
-        
+
         s_talimentos += parseFloat($(this).find('td').eq(10).text() || 0, 10);
         s_tviaticos += parseFloat($(this).find('td').eq(11).text() || 0, 10);
         s_thonorarios += parseFloat($(this).find('td').eq(12).text() || 0, 10);
         s_totros += parseFloat($(this).find('td').eq(13).text() || 0, 10);
         s_timpuestos += parseFloat($(this).find('td').eq(14).text() || 0, 10);
         s_talquileres += parseFloat($(this).find('td').eq(15).text() || 0, 10);
-        
+
         s_tentregados += parseFloat($(this).find('td').eq(16).text() || 0, 10);
         s_tcta_agte += parseFloat($(this).find('td').eq(17).text() || 0, 10);
         s_tefec_sucu += parseFloat($(this).find('td').eq(18).text() || 0, 10);
@@ -112,20 +113,20 @@ function fnTotalesRGastosxSucursal() {
     $("#tpendientes").text(s_tpendientes.toFixed(2));
     $("#tgiro_banco").text(s_tgiro_banco.toFixed(2));
     $("#tcomi_giros").text(s_tcomi_giros.toFixed(2));
-    
+
     $("#tcomi_retiros").text(s_tcomi_retiros.toFixed(2));
     $("#ttransporte").text(s_ttransporte.toFixed(2));
     $("#tletras").text(s_tletras.toFixed(2));
     $("#tutil_mante").text(s_tutil_mante.toFixed(2));
     $("#tservicios").text(s_tservicios.toFixed(2));
-    
+
     $("#talimentos").text(s_talimentos.toFixed(2));
     $("#tviaticos").text(s_tviaticos.toFixed(2));
     $("#thonorarios").text(s_thonorarios.toFixed(2));
     $("#totros").text(s_totros.toFixed(2));
     $("#timpuestos").text(s_timpuestos.toFixed(2));
     $("#talquileres").text(s_talquileres.toFixed(2));
-    
+
     $("#tentregados").text(s_tentregados.toFixed(2));
     $("#tcta_agte").text(s_tcta_agte.toFixed(2));
     $("#tefec_sucu").text(s_tefec_sucu.toFixed(2));
@@ -140,11 +141,13 @@ function fnTotalesRIngxSucursal() {
     s_ti_otros = 0;
     s_ti_total_trecibidas = 0;
     s_ti_justes = 0;
-    s_ti_comi_recargas=0;
-    s_ti_otros_ing=0;
-    s_ti_traslado_efe_age_sucu=0;
-    s_ti_traslado_efe_sucu_sucu=0;
-    s_ti_ingresos=0;
+    s_ti_comi_recargas = 0;
+    s_ti_otros_ing = 0;
+
+    s_ti_ing_efec_cta_agte = 0;
+    s_ti_traslado_efe_age_sucu = 0;
+    s_ti_traslado_efe_sucu_sucu = 0;
+    s_ti_ingresos = 0;
     //filas con clase 'dato', especifica una clase, asi no tomas el nombre de las columnas
     $('#TIngresosxSucursal tr.dato').each(function () {
         if ($(this).find('td').eq(0).text() === $("#fechaf").val().replace("/", "-")) {
@@ -157,9 +160,10 @@ function fnTotalesRIngxSucursal() {
         s_ti_justes += parseFloat($(this).find('td').eq(7).text() || 0, 10);
         s_ti_comi_recargas += parseFloat($(this).find('td').eq(8).text() || 0, 10);
         s_ti_otros_ing += parseFloat($(this).find('td').eq(9).text() || 0, 10);
-        s_ti_traslado_efe_age_sucu += parseFloat($(this).find('td').eq(10).text() || 0, 10);
-        s_ti_traslado_efe_sucu_sucu += parseFloat($(this).find('td').eq(11).text() || 0, 10);
-        s_ti_ingresos += parseFloat($(this).find('td').eq(12).text() || 0, 10);
+        s_ti_ing_efec_cta_agte += parseFloat($(this).find('td').eq(10).text() || 0, 10);
+        s_ti_traslado_efe_age_sucu += parseFloat($(this).find('td').eq(11).text() || 0, 10);
+        s_ti_traslado_efe_sucu_sucu += parseFloat($(this).find('td').eq(12).text() || 0, 10);
+        s_ti_ingresos += parseFloat($(this).find('td').eq(13).text() || 0, 10);
     });
     $("#ti_importe").text(s_ti_importe.toFixed(2));
     $("#ti_cargo").text(s_ti_cargo.toFixed(2));
@@ -168,6 +172,7 @@ function fnTotalesRIngxSucursal() {
     $("#ti_justes").text(s_ti_justes.toFixed(2));
     $("#ti_comi_recargas").text(s_ti_comi_recargas.toFixed(2));
     $("#ti_otros_ing").text(s_ti_otros_ing.toFixed(2));
+    $("#ti_ing_efec_cta_agte").text(s_ti_ing_efec_cta_agte.toFixed(2));
     $("#ti_traslado_efe_age_sucu").text(s_ti_traslado_efe_age_sucu.toFixed(2));
     $("#ti_traslado_efe_sucu_sucu").text(s_ti_traslado_efe_sucu_sucu.toFixed(2));
     $("#ti_ingresos").text(s_ti_ingresos.toFixed(2));
@@ -203,11 +208,11 @@ function fnTotalesRAgente() {
 }
 function fnTotalesRAsociado() {
     s_totros_gastos = 0;
-    s_tcant_giros=0;
-    s_ttelegiro=0;
-    s_titf=0;
-    s_tsaldo=0;
-    s_tgastos=0;
+    s_tcant_giros = 0;
+    s_ttelegiro = 0;
+    s_titf = 0;
+    s_tsaldo = 0;
+    s_tgastos = 0;
     s_tutilidad = 0;
     $("#fechaf").val($("#fechaf").val().replace("/", "-"));
     $('#TResumenAsociado tr.dato').each(function () {
@@ -272,11 +277,11 @@ function FnMuestraRAgente() {
         data: {opcion: 'MOSTRAR', fechai: $('#fechai').val(), fechaf: $('#fechaf').val(), idempresa: $('#idempresa').val()},
         url: "controles/ManteGerencial.php",
         beforeSend: function (objeto) {
-            $('#carga').css({display: 'block'});
+            $("#TResumenAgente").dataTable().fnDestroy();
+            $("#TResumenAgente tbody").empty();
         },
         success: CreaTablaRAgente
                 //complete:  fnTotalesRAgente
-
     });
     return false;
 }
@@ -286,7 +291,8 @@ function FnMuestraRAsociado() {
         data: {opcion: 'MOSTRAR_A', fechai: $('#fechai').val(), fechaf: $('#fechaf').val(), idempresa: $('#idempresa').val()},
         url: "controles/ManteGerencial.php",
         beforeSend: function (objeto) {
-            $('#carga').css({display: 'block'});
+            $("#TResumenAsociado").dataTable().fnDestroy();
+            $("#TResumenAsociado tbody").empty();
         },
         //complete: function () {      $('#carga').css('display', 'none');    },
         success: CreaTablaRAsociado
@@ -312,17 +318,13 @@ function CreaTablaRAgente(json) {
         html += "<td align='right'>" + json[x].utilidad_neta + "</td>";
         html += "</tr>";
     }
-    //$('#carga').css('display', 'none');
     $("#body_ResumenAgente").html(html);
     fnTotalesRAgente();
-    //FnMuestraTSaldoAgente();
-
     $('#TResumenAgente').dataTable({
         "sScrollY": 240, "bPaginate": false,
         "bLengthChange": false, "bFilter": false, "ordering": false,
-        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
     });
-
 }
 
 function CreaTablaRAsociado(json) {
@@ -344,15 +346,12 @@ function CreaTablaRAsociado(json) {
         html += "<td align='right'>" + json[x].utilidad_neta + "</td>";
         html += "</tr>";
     }
-    $('#carga').css('display', 'none');
     $("#body_ResumenAsociado").html(html);
     fnTotalesRAsociado();
-    //FnMuestraTSaldoAsociado();
-//    console.log('Hola:'+$("#tsaldo_efectivo").text());
     $('#TResumenAsociado').dataTable({
         "sScrollY": 260, "bPaginate": false,
         "bLengthChange": false, "bFilter": false, "ordering": false,
-        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
     });
 }
 
@@ -384,7 +383,7 @@ $(document).ready(function () {
             var objDataTable = $('#TResumenAgente').dataTable({
                 "sScrollY": 260, "bPaginate": false,
                 "bLengthChange": false, "bFilter": false, "ordering": false,
-                "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+                "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
             });
 //        objDataTable.fnSettings().oScroll.sY = 181;
             objDataTable.fnDraw();
@@ -394,7 +393,7 @@ $(document).ready(function () {
             var objDataTable1 = $('#TResumenAsociado').dataTable({
                 "sScrollY": 260, "bPaginate": false,
                 "bLengthChange": false, "bFilter": false, "ordering": false,
-                "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+                "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
             });
 //        objDataTable1.fnSettings().oScroll.sY = 181;
             objDataTable1.fnDraw();
@@ -404,7 +403,7 @@ $(document).ready(function () {
             var objDataTable1 = $('#TGastosxSucursal').dataTable({
                 "sScrollY": 260, "bPaginate": false,
                 "bLengthChange": false, "bFilter": false, "ordering": false,
-                "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+                "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
             });
 //        objDataTable1.fnSettings().oScroll.sY = 181;
             objDataTable1.fnDraw();
@@ -490,7 +489,7 @@ $(document).ready(function () {
     $("#btn_muestra_resultados").click(function () {
 //      $.blockUI({ message: $('#question'), css: { width: '275px' } }); 
         //$.blockUI({ message: '<h1><img src="img/loader32.gif" /> Just a moment...</h1>' }); 
-        FnLimpiaTabla();
+//        FnLimpiaTabla();
         $.confirm({title: 'Giros-Transferencias', confirmButton: 'Continuar', cancelButton: 'Cancelar',
             confirmButtonClass: 'btn-warning', cancelButtonClass: 'btn-default',
             content: 'Se mostraran Moviminetos desde: \n' + $("#fechai").val() + '  Hasta:' + $("#fechaf").val(),
@@ -498,8 +497,8 @@ $(document).ready(function () {
                 FnMuestraRAsociado();
                 FnMuestraRAgente();
                 FnMuestraIngxSucursal();
-                FnMuestraGastosxSucursal();
                 $("#btn_totalizar").attr("disabled", false);
+                FnMuestraGastosxSucursal();
             },
             cancel: function () {
 //              $.alert('Canceled!')
@@ -545,20 +544,22 @@ $(document).ready(function () {
     });
     /*****************************  **********************************************/
 //$(document).ajaxStop(jc1.close);
+    FnLimpiaTabla();
+    $("#btn_totalizar").toggle("slow");
 });
 
 function FnMuestraGastosxSucursal() {
-
     $.ajax({async: true, type: "POST", dataType: "json", cache: false,
         data: {opcion: 'MOSTRAR_G', fechai: $('#fechai').val(), fechaf: $('#fechaf').val(), idempresa: $('#idempresa').val(), token: $('#token_g').val()},
         url: "controles/ManteGerencial.php",
+        beforeSend: function (objeto) {
+            $("#TGastosxSucursal").dataTable().fnDestroy();
+            $("#TGastosxSucursal tbody").empty();
+        },
         success: CreaTablaRGastosxSucursal
-    }).done(function (respuesta) {
-        $("#miflag").val(respuesta[0].fecha);
-        console.log($("#miflag").val());
-        if ($("#miflag").val().length < 1) {
-            FnMuestraFlujoCaja();
-        }
+    }).done(function (data) {
+
+        FnMuestraFlujoCaja();
     });
 }
 function CreaTablaRGastosxSucursal(jsong) {
@@ -582,14 +583,15 @@ function CreaTablaRGastosxSucursal(jsong) {
         html += "<td align='right'>" + jsong[x].alimentos + "</td>";
         html += "<td align='right'>" + jsong[x].viaticos + "</td>";
         html += "<td align='right'>" + jsong[x].honorarios + "</td>";
-        html += "<td align='right'>" + jsong[x].otros + "</td>";
+        html += "<td align='right'>" + jsong[x].imprevistos + "</td>";
         html += "<td align='right'>" + jsong[x].impuestos + "</td>";
 
         html += "<td align='right'>" + jsong[x].alquileres + "</td>";
         html += "<td align='right'>" + jsong[x].entregados + "</td>";
         html += "<td align='right'>" + jsong[x].traslado_cta_agte + "</td>";
         html += "<td align='right'>" + jsong[x].traslado_efec_sucu + "</td>";
-        html += "<td align='right'>" + jsong[x].traslado_efec_asociado + "</td>";
+        html += "<td align='right'>" + jsong[x].traslado_efec_agte + "</td>";
+        html += "<td align='right'>" + jsong[x].otros + "</td>";
         html += "<td align='right'>" + jsong[x].totales + "</td>";
         html += "<td align='right'>" + jsong[x].total_gastos + "</td>";
         html += "</tr>";
@@ -599,7 +601,7 @@ function CreaTablaRGastosxSucursal(jsong) {
     $('#TGastosxSucursal').dataTable({
         "sScrollY": 260, "bPaginate": false,
         "bLengthChange": false, "bFilter": false, "ordering": false,
-        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
     });
 }
 
@@ -608,9 +610,9 @@ function FnMuestraIngxSucursal() {
         data: {opcion: 'MOS_INGXSUCURSAL', fechai: $('#fechai').val(), fechaf: $('#fechaf').val(), idempresa: $('#idempresa').val(), token: $('#token_g').val()},
         url: "controles/ManteGerencial.php",
         beforeSend: function (objeto) {
-            $('#carga').css({display: 'block'});
+            $("#TIngresosxSucursal").dataTable().fnDestroy();
+            $("#TIngresosxSucursal tbody").empty();
         },
-        //complete: function () {      $('#carga').css('display', 'none');    },
         success: CreaTablaRIngxSucursal
     });
     return false;
@@ -632,6 +634,7 @@ function CreaTablaRIngxSucursal(jsong) {
         html += "<td align='right'>" + jsong[x].otros_ing + "</td>";
         html += "<td align='right'>" + jsong[x].comi_recargas + "</td>";
 
+        html += "<td align='right'>" + jsong[x].ing_efec_cta_agte + "</td>";
         html += "<td align='right'>" + jsong[x].tras_efectivo_agt_sucu + "</td>";
         html += "<td align='right'>" + jsong[x].tras_efectivo_sucu_sucu + "</td>";
         html += "<td align='right'>" + jsong[x].total + "</td>";
@@ -642,16 +645,17 @@ function CreaTablaRIngxSucursal(jsong) {
     $('#TIngresosxSucursal').dataTable({
         "sScrollY": 260, "bPaginate": false,
         "bLengthChange": false, "bFilter": false, "ordering": false,
-        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
     });
 }
 
 function FnMuestraFlujoCaja() {
     $.ajax({async: true, type: "POST", dataType: "json", cache: false,
-        data: {opcion: 'FLUJOCAJA'},
+        data: {opcion: 'FLUJOCAJA', token: $('#token_g').val()},
         url: "controles/ManteGerencial.php",
         beforeSend: function (objeto) {
-            $('#carga').css({display: 'block'});
+            $("#TFlujoCaja").dataTable().fnDestroy();
+            $("#TFlujoCaja tbody").empty();
         },
         success: CreaTablaFlujoCaja
     });
@@ -678,9 +682,9 @@ function CreaTablaFlujoCaja(jsong) {
     $('#TFlujoCaja').dataTable({
         "sScrollY": 260, "bPaginate": false,
         "bLengthChange": false, "bFilter": false, "ordering": false,
-        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "destroy": true //, "bJQueryUI": true
+        "bInfo": false, "bAutoWidth": true, "bSortClasses": false, "bdestroy": true //, "bJQueryUI": true
     });
-//    fnCargaTablaFlujoCajaE();
+    $("#btn_totalizar").toggle("slow");
 }
 
 function FnMuestraTSaldoAgente() {
@@ -722,100 +726,204 @@ function fnCargaTablaFlujoCajaE() {
 }
 
 function FnLimpiaTabla() {
-    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
-        data: {opcion: 'LIMPIA'},
-        url: "controles/ManteGerencial.php"
-//    beforeSend: function (objeto) { $('#carga').css({display: 'block'});},    
-//    success: CreaTablaFlujoCaja
-    });
+    var html;
+    $("#TresumenAgente").dataTable().fnDestroy();
+    $("#TresumenAgente tbody").empty();
+    $("#TResumenAsociado").dataTable().fnDestroy();
+    $("#TResumenAsociado tbody").empty();
+    $("#TIngresosxSucursal").dataTable().fnDestroy();
+    $("#TIngresosxSucursal tbody").empty();
+    $("#TGastosxSucursal").dataTable().fnDestroy();
+    $("#TGastosxSucursal tbody").empty();
+    $("#TFlujoCaja").dataTable().fnDestroy();
+    $("#TFlujoCaja tbody").empty();
+
+//    $("#body_ResumenAgente").html(html);
+//    $("#body_ResumenAsociado").html(html);
+//    $("#body_GastosxSucursal").html(html);
+//    $("#body_IngresosxSucursal").html(html);
+//    $("#body_FlujoCaja").html(html);
+//    $("#body_FlujoCajaE").html(html);    
     return false;
 }
-
+var liquidez_neta;
+var total_liquidez;
 function fnResumenEfectivo() {
-    var total_agente=0;
-    var total_cuentas=0;
-    var total_efectivo_neto=0;
-    var total_liquidez=0;
-    var total_trans_pendientes=0;
-    var liquidez_neta=0;
-    
-    total_agente=parseFloat($("#t_saldo_cuenta").text()) + parseFloat($("#t_saldo_efectivo").text());
-    total_cuentas=parseFloat($("#tsaldo").text());
-    total_efectivo_neto=parseFloat($("#t_efectivoneto").text()); 
-    total_liquidez=total_agente + total_cuentas + total_efectivo_neto;
-    total_trans_pendientes=parseFloat($("#t_pendientes").text());
+    var total_agente = 0;
+    var total_cuentas = 0;
+    var total_efectivo_neto = 0;
+    total_liquidez = 0;
+    var total_trans_pendientes = 0;
+    liquidez_neta = 0;
+
+    total_agente = parseFloat($("#t_saldo_cuenta").text()) + parseFloat($("#t_saldo_efectivo").text());
+    total_cuentas = parseFloat($("#tsaldo").text());
+    total_efectivo_neto = parseFloat($("#t_saldototal").text());
+    total_liquidez = total_agente + total_cuentas + total_efectivo_neto;
+    total_trans_pendientes = parseFloat($("#t_pendientes").text());
     liquidez_neta = total_liquidez - total_trans_pendientes;
     var html;
     html += "<tr>";
-        html += "<td>" + $('#fechai').val() + "</td>";
-        html += "<td>" + $('#fechaf').val() + "</td>";
-        html += "<td>" + total_agente.toFixed(2) + "</td>";
-        html += "<td>" + total_cuentas.toFixed(2) + "</td>";
-        html += "<td>" + total_efectivo_neto.toFixed(2) + "</td>";
-        html += "<td>" + total_liquidez.toFixed(2)+ "</td>";
-        html += "<td>" + liquidez_neta.toFixed(2) + "</td>";
+    html += "<th>" + "Suma Total Agente" + "</td>";
+    html += "<td id='total_agente'>" + total_agente.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Suma Total Saldo Ctas Asociado" + "</td>";
+    html += "<td id='total_cuentas'>" + total_cuentas.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Suma Total Efectivo Neto Sucursales" + "</td>";
+    html += "<td id='total_efectivo_neto'>" + total_efectivo_neto.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Liquidez Total" + "</td>";
+    html += "<td id='total_liquidez'>" + total_liquidez.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Total Transferencias Pendientes" + "</td>";
+    html += "<td id='total_trans_pendientes'>" + total_trans_pendientes.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Liquidez Total Neta" + "</td>";
+    html += "<td id='liquidez_neta'>" + liquidez_neta.toFixed(2) + "</td>";
     html += "</tr>";
     $("#body_ResumenEfectivo").html(html);
-    console.log(total_agente);
-    console.log($("#t_saldo_cuenta").text());
-    console.log($("#t_saldo_efectivo").text());
 }
 
-var total_utilidad=0;    
+var total_utilidad;
 function fnResumenUtilidad() {
-    var total_util_agente=0;
-    var total_util_asociado=0;
+    var total_util_agente = 0;
+    var total_util_asociado = 0;
     var total_util_sucursales = 0;
     total_utilidad = 0;
-    
-    total_util_agente=parseFloat($("#t_utilidad_Agente").text());
-    total_util_asociado=parseFloat($("#tutilidad").text());
-    total_util_sucursales=parseFloat($("#ti_cargo").text());
-    total_utilidad=total_util_agente+total_util_asociado+total_util_sucursales;
+    total_util_agente = parseFloat($("#t_utilidad_Agente").text());
+    total_util_asociado = parseFloat($("#tutilidad").text());
+    total_util_sucursales = parseFloat($("#ti_cargo").text());
+    total_utilidad = total_util_agente + total_util_asociado + total_util_sucursales;
     var html;
     html += "<tr>";
-        html += "<td>" + $('#fechai').val() + "</td>";
-        html += "<td>" + $('#fechaf').val() + "</td>";
-        html += "<td>" + total_util_agente.toFixed(2) + "</td>";        
-        html += "<td>" + total_util_asociado.toFixed(2) + "</td>";
-        html += "<td>" + total_util_sucursales.toFixed(2) + "</td>";
-        html += "<td>" + total_utilidad + "</td>";
+    html += "<th>" + "Total Utilidad Agente" + "</td>";
+    html += "<td id='total_util_agente'>" + total_util_agente.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Total Utilidad Asociado" + "</td>";
+    html += "<td id='total_util_asociado'>" + total_util_asociado.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Total Utilidad Sucursales" + "</td>";
+    html += "<td id='total_util_sucursales'>" + total_util_sucursales.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Total Utilidad" + "</td>";
+    html += "<td id='total_utilidad'>" + total_utilidad.toFixed(2) + "</td>";
     html += "</tr>";
     $("#body_ResumenUtilidad").html(html);
 }
 var total_gastos = 0;
 function fnResumenGastos() {
-    var total_gas_agente=0;
-    var total_gas_asociado=0;
+    var total_gas_agente = 0;
+    var total_gas_asociado = 0;
     var total_gas_sucursales = 0;
     total_gastos = 0;
-    
-    total_gas_agente=parseFloat($("#t_gasto_Agente").text());
-    total_gas_asociado=parseFloat($("#tgastos").text());
-    total_gas_sucursales=parseFloat($("#ttotal_gastos").text());
-    total_gastos=total_gas_agente+total_gas_asociado+total_gas_sucursales;
+
+    total_gas_agente = parseFloat($("#t_gasto_Agente").text());
+    total_gas_asociado = parseFloat($("#tgastos").text());
+    total_gas_sucursales = parseFloat($("#ttotal_gastos").text());
+    total_gastos = total_gas_agente + total_gas_asociado + total_gas_sucursales;
     var html;
     html += "<tr>";
-        html += "<td>" + $('#fechai').val() + "</td>";
-        html += "<td>" + $('#fechaf').val() + "</td>";
-        html += "<td>" + total_gas_agente + "</td>";        
-        html += "<td>" + total_gas_asociado + "</td>";
-        html += "<td>" + total_gas_sucursales + "</td>";
-        html += "<td>" + total_gastos + "</td>";
+    html += "<th>" + "Suma Gastos Agente" + "</td>";
+    html += "<td id='total_gas_agente'>" + total_gas_agente.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Suma Gastos Asociado" + "</td>";
+    html += "<td id='total_gas_asociado'>" + total_gas_asociado.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Suma Gastos Sucursales" + "</td>";
+    html += "<td id='total_gas_sucursales'>" + total_gas_sucursales.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Total Gastos" + "</td>";
+    html += "<td id='total_gastos'>" + total_gastos.toFixed(2) + "</td>";
     html += "</tr>";
     $("#body_ResumenGastos").html(html);
+    FnInsertaLiquidez(liquidez_neta);
+}
+
+function FnRecuperaLiquidez() {
+    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
+        data: {opcion: 'LIQUIDEZ', fecha: $('#fechaf').val(), monto: '00.00', op: 'L'},
+        url: "controles/ManteGerencial.php",
+        beforeSend: function (objeto) { },
+        success: fnResumenLiquidez
+    });
+    return false;
+}
+
+function fnResumenLiquidez(jsonl) {
+    var utilidad_neta = 0;
+    var gastos_netos = 0;
+    var total_liquidez = 0;
+    var efectivo_hoy = 0;
+    var diferencia = 0;
+    var saldo_anterior = 0;
+    var html;
+    saldo_anterior = jsonl[0].liquidez;
+    utilidad_neta = total_utilidad;
+    gastos_netos = total_gastos;
+    total_liquidez = parseFloat(saldo_anterior) + parseFloat(utilidad_neta) - parseFloat(gastos_netos);
+    efectivo_hoy = parseFloat(liquidez_neta);
+    diferencia = total_liquidez - efectivo_hoy;
+    html += "<tr>";
+    html += "<th>" + "Saldo Anterior " + "</td>";
+    html += "<td id='total_pasivo'>" + saldo_anterior + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Utilidad Neta" + "</td>";
+    html += "<td id='total_pasivo'>" + utilidad_neta.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Gastos Netos" + "</td>";
+    html += "<td id='total_pasivo'>" + gastos_netos + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Total" + " </td>";
+    html += "<td id='total_pasivo'>" + total_liquidez.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Efectivo HOY" + "</td>";
+    html += "<td id='total_pasivo'>" + efectivo_hoy.toFixed(2) + "</td>";
+    html += "</tr>";
+    html += "<tr>";
+    html += "<th>" + "Diferencia" + "</td>";
+    html += "<td id='total_pasivo'>" + diferencia.toFixed(2) + "</td>";
+    html += "</tr>";
+    $("#body_ResumenLiquidez").html(html);
 }
 
 function fnResumenPasivo() {
-    var total_pasivo=0.00;
-        
-    total_pasivo= total_utilidad - total_gastos;
-    
+    var total_pasivo = 0;
+    total_pasivo = total_utilidad - total_gastos;
     var html;
     html += "<tr>";
-        html += "<td>" + $('#fechai').val() + "</td>";
-        html += "<td>" + $('#fechaf').val() + "</td>";
-        html += "<td>" + total_pasivo.toFixed(2) + "</td>";
+    html += "<th>" + "Ingreso Pasivo" + "</td>";
+    html += "<td id='total_pasivo_'>" + total_pasivo.toFixed(2) + "</td>";
     html += "</tr>";
     $("#body_ResumenPasivo").html(html);
+    if (total_pasivo < 0) {
+        $('#total_pasivo_').css('background-color', 'tomato');
+    } else {
+        $('#total_pasivo_').css('background-color', 'white');
+    }
+    FnRecuperaLiquidez();
+}
+
+function FnInsertaLiquidez(liquidez_actual) {
+    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
+        data: {opcion: 'LIQUIDEZ', fecha: $('#fechaf').val(), monto: liquidez_actual, op: 'I'},
+        url: "controles/ManteGerencial.php",
+        success: console.log(liquidez_actual)
+    });
+    return false;
 }

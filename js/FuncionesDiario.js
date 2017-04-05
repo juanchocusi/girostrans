@@ -1,10 +1,10 @@
 
 function FnCalculaTotales(){
 var ti=0; var tr=0; var ten=0; var teg=0; var ts=0; var gti=0; var gte=0;
-    ti=     parseFloat(document.getElementById("tingresos").value);    
-    tr =    parseFloat(document.getElementById("trecepcion").value);    
-    ten =   parseFloat(document.getElementById("tentrega").value);
-    teg =   parseFloat(document.getElementById("tegresos").value);
+    ti=parseFloat(document.getElementById("tingresos").value);    
+    tr =parseFloat(document.getElementById("trecepcion").value);    
+    ten =parseFloat(document.getElementById("tentrega").value);
+    teg =parseFloat(document.getElementById("tegresos").value);
     if (isNaN(ti))  ti=0;    if (isNaN(tr))  tr=0;    if (isNaN(ten)) ten=0;    if (isNaN(teg)) teg=0;
     gti = ti + tr;    gte = ten + teg;    ts = gti - gte;    
     document.getElementById("total_ingresos").value = parseFloat(Math.round(gti*100)/100).toFixed(2);    
@@ -218,27 +218,29 @@ var i=0;
 
 function FnInsertaEgresos(respo) {
   var optionSelected = $('#lista_conceptos').val();  
-  console.log($("#opt_insert").val());
   jConfirm("¿Esta seguro de agregar: S/. " + $("#egreso").val(), "Giros - Transferencias", function (rpta) {
     if (rpta) {      
       if ($("#opt_insert").val() === 'IE') {
         $("#egreso").val($("#egreso").val().replace(",", ""));
         var monto = parseFloat($("#egreso").val());
-        if (monto > 0 && $("#lista_conceptos").val() !== '0') {            
+        if (monto > 0 && $("#lista_conceptos").val() !== '0') {
           $.ajax({async: true, type: "POST", dataType: "json", cache: false,
             data: {opt: $("#opt_insert").val(),coddiario:$("#codcierrediario").val(), monto: monto,idconcepto:$("#lista_conceptos").val(),
                     sucu_destino:$("#lista_sucursales").val(),concepto: $("#masdatos_eg").val(), responsable: respo, usuamodi: $("#nusuario").val()},
             url: "controles/ManteCierreDiario.php",
             complete: FnCargaEgresos
-          });
+          });          
             switch (optionSelected) {
                 case '35' :
                     fnInsertaTransaccionAsociado();
                     break;
                 case '36':
-                    fnInsertaTransaccionAgente();
+                    fnInsertaTransaccionAgente(optionSelected);
                     break;
-            }            
+                case '70':
+                    fnInsertaTransaccionAgente(optionSelected);
+                    break;    
+            }
           $("#div_txt_egreso").toggle(700);
           LimpiaEg();
         } else { jAlert('Ingrese datos...', 'Diario - Egresos'); }
@@ -913,7 +915,7 @@ $("#dialogo_asociados").dialog({autoOpen: false, resizable: true, modal: true,
   });
 
 $("#dialogo_agentes").dialog({autoOpen: false, resizable: true, modal: true,
-    height: 480, width: 350,
+    height: 480, width: 500,
     show: {effect: "blind", duration: 700},
     hide: {effect: "fade", duration: 700},
     open: function (event, ui) {
@@ -940,18 +942,18 @@ $("#imprime_dinero").click(function(){
 $("#div_sucursales").css("display","none");
 $("#div_asociado").css("display","none");
 $("#div_agente").css("display","none");
-
+var optionSelectedAgt;
 $("#lista_conceptos").change( function (){
-  var optionSelected = $('#lista_conceptos').val();
-  console.log(optionSelected);
-        if (optionSelected === '20') { // SALIDA DE EFECTIVO A OTRA SUCURSAL
+  optionSelectedAgt = $('#lista_conceptos').val();
+  console.log(optionSelectedAgt);
+        if (optionSelectedAgt === '20') { // SALIDA DE EFECTIVO A OTRA SUCURSAL
             $("#div_sucursales").toggle(700);
             $("#lista_sucursales").prop("selectedIndex", 0);
         } else {
             $("#div_sucursales").css("display", "none");
             $("#lista_sucursales").prop("selectedIndex", 0);
         }
-        if (optionSelected === '35') { // SALIDA DE EFECTIVO A Asociado
+        if (optionSelectedAgt === '35') { // SALIDA DE EFECTIVO A Asociado
             $("#dialogo_asociados").dialog("open");
             $("#div_asociado").toggle(700);            
             //console.log(optionSelected);
@@ -959,10 +961,16 @@ $("#lista_conceptos").change( function (){
             $("#div_asociado").css("display", "none");
             $("#txt_asociado").val("");
         }
-        if (optionSelected === '36') { // SALIDA DE EFECTIVO A Agentes
+        if (optionSelectedAgt === '36') { // SALIDA DE EFECTIVO A Agentes
             $("#dialogo_agentes").dialog("open");
             $("#div_agente").toggle(700);
-            
+        } else {
+            $("#div_agente").css("display", "none");
+            $("#txt_agente").val("");
+        }
+        if (optionSelectedAgt === '70') { // TRANSFERENCIAS DE EFECTIVO>>AGENTE
+            $("#dialogo_agentes").dialog("open");
+            $("#div_agente").toggle(700);
         } else {
             $("#div_agente").css("display", "none");
             $("#txt_agente").val("");
@@ -1987,16 +1995,28 @@ function fnInsertaTransaccionAsociado() {
   });
 }
 
-function fnInsertaTransaccionAgente(){
-  $.ajax({async: true, type: "POST", dataType: "json", cache: false,      
-    data: {opt: "IT",nrocuenta:$('#nrocuenta_agente').val(),nrocuentadest:'---',dinero:'C', monto:$('#egreso').val(),ttran:'169',
-    origen:$("#codsucursal").val(),idgiro:'0',nroop:'---',nromovs:'0',observa: $('#masdatos_eg').val(),
-    respo:$('#responsable_eg').val(),modifica: $('#nusuario').val(),fechamov:$('#fechacierrediario').val(),opsql:'I' },
-    url: "controles/ManteAgentes.php",
-    beforeSend: function (objeto) { },
-    complete: function (objeto) { }
-    //success: fnMuestraMovsCuenta( $('#nro_cuenta').val(), $('#fechai').val(), $('#fechaf').val() )
-  });
+function fnInsertaTransaccionAgente(opcion) {
+    console.log("opcion="+opcion);
+//    console.log(opcion);
+    var tipotransaccion;
+    var op_dinero='';
+    if (opcion === "36") {
+        tipotransaccion = "201";
+        op_dinero = 'C';        
+    }
+    if (opcion === "70") {
+        tipotransaccion = "200";
+        op_dinero = 'E';        
+    }
+    $.ajax({async: true, type: "POST", dataType: "json", cache: false,
+        data: {opt: "IT", nrocuenta: $('#nrocuenta_agente').val(), nrocuentadest: '---', dinero: op_dinero, monto: $('#egreso').val(), ttran: tipotransaccion,
+            origen: $("#codsucursal").val(), idgiro: '0', nroop: '---', nromovs: '0', observa: $('#masdatos_eg').val(),
+            respo: $('#responsable_eg').val(), modifica: $('#nusuario').val(), fechamov: $('#fechacierrediario').val(), opsql: 'I'},
+        url: "controles/ManteAgentes.php"
+    });
+    console.log("opcion_="+opcion);
+    console.log("tipotran="+tipotransaccion);    
+    console.log("dinero="+op_dinero);
 }
 
 function ocultarFila(num,ver) {

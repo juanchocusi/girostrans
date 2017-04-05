@@ -27,7 +27,7 @@ $idempresa = $_SESSION['idempresa'];
         <link rel="stylesheet" type="text/css" href="css/ionicons.min.css"/>        
         
         <link rel="stylesheet" type="text/css" href="css/css_gerencial_style.css"/>
-        <link rel="stylesheet" type="text/css" href="css/css_gerencial.css"/>
+        
         <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css"/>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -107,9 +107,10 @@ $idempresa = $_SESSION['idempresa'];
         <script type="text/javascript" src="js/CierraSesionInactivoG.js"></script>
         <script type="text/javascript" src="js/jquery.price_format.2.0.min.js"></script>
         <script type="text/javascript" src="js/jquery-confirm.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/css_gerencial.css"/>
         
     </body>
     <input type="hidden" id="idempresa" value="<?php echo $_SESSION['idempresa']?>">
     <input type="hidden" id="token_g" value="<?php echo $_SESSION['mi_token1']?>">
-    <input type="hidden" id="milag" >
+    <input type="hidden" id="miflag" >
 </html>
